@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EmergencyListTableViewController: UITableViewController, TOSMBSessionDownloadTaskDelegate{
+class EmergencyListTableViewController: UITableViewController{
     // MARK: Properties
     var emergencies = [Emergency]()
     var filePath: String = ""
