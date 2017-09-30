@@ -16,11 +16,19 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import jcifs.smb.NtlmPasswordAuthentication;
-import jcifs.smb.SmbException;
-import jcifs.smb.SmbFile;
-import jcifs.smb.SmbFileInputStream;
-import jcifs.smb.SmbFileOutputStream;
+import com.google.api.client.auth.oauth2.Credential;
+import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
+import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
+import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
+import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
+import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
+import com.google.api.client.http.HttpTransport;
+import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.util.store.FileDataStoreFactory;
+import com.google.api.services.sheets.v4.Sheets;
+import com.google.api.services.sheets.v4.SheetsScopes;
+import com.google.api.services.sheets.v4.model.ValueRange;
+
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -31,7 +39,7 @@ public class Controller {
 	// run,block,coach,operator,timeDue,firstTime,direction,lastTime,pullInTime,actualTime,OCP,OE
 	HashMap<String, PImage> buttonImages;
 	HashMap<String, PImage> backgroundImages;
-	HashMap<String, Button> staticButtons; // buttons that display regardless of
+	HashMap<String, Button> buttons; // buttons that display regardless of
 											// state
 	HashMap<String, Button> variableButtons; // buttons that are
 												// state-dependant; will be
@@ -43,13 +51,19 @@ public class Controller {
 	private String password;
 
 	public Controller(Emergency_Input g) {
+		try {
+			Quickstart.go();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		emergency_Input = g;
 		display = new Display(emergency_Input, this);
-		staticButtons = new HashMap<String, Button>();
+		buttons = new HashMap<String, Button>();
 		buttonImages = new HashMap<String, PImage>();
 		backgroundImages = new HashMap<String, PImage>();
 		loadImages(emergency_Input);
-		putStaticButtons();
+		putbuttons();
 		String[] metaData = getMetaData();
 		this.dataPath = metaData[0];
 		this.username = metaData[1];
@@ -57,16 +71,16 @@ public class Controller {
 		checkFileOutdated();
 	}
 
-	public void putStaticButtons() {
-		staticButtons.put("createButton",
+	public void putbuttons() {
+		buttons.put("createButton",
 				new Button(Emergency_Input.SCREEN_WIDTH / 4,
 						Emergency_Input.SCREEN_HEIGHT / 2 - buttonImages.get("BlankButton-white").height / 2,
 						Button.ButtonName.CREATE, buttonImages.get("BlankButton-white")));
-		staticButtons.put("pathButton",
+		buttons.put("pathButton",
 				new Button(Emergency_Input.SCREEN_WIDTH * 3 / 4 - buttonImages.get("BlankButton-white").width,
 						Emergency_Input.SCREEN_HEIGHT / 2 - buttonImages.get("BlankButton-white").height / 2,
 						Button.ButtonName.CHANGEPATH, buttonImages.get("BlankButton-white")));
-		staticButtons.put("showFileButton",
+		buttons.put("showFileButton",
 				new Button(Emergency_Input.SCREEN_WIDTH / 2 - buttonImages.get("BlankButton-white").width / 2,
 						Emergency_Input.SCREEN_HEIGHT / 2 + buttonImages.get("BlankButton-white").height * 5 / 2,
 						Button.ButtonName.SHOWFILE, buttonImages.get("BlankButton-white")));
@@ -80,22 +94,7 @@ public class Controller {
 		checkFileOutdated();
 		
 		if (dataPath.startsWith("smb")) {
-
-		    NtlmPasswordAuthentication auth = new NtlmPasswordAuthentication(null,username, password);
-			try {
-				SmbFile smbFile = new SmbFile(dataPath,auth);
-			    SmbFileOutputStream smbfos = new SmbFileOutputStream(smbFile);
-			    smbfos.write(line.getBytes());
-			    smbfos.close();
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			} catch (SmbException e) {
-				e.printStackTrace();
-			} catch (UnknownHostException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}		    
+			
 		} else {
 			PrintWriter printWriter;
 			try {
@@ -112,7 +111,7 @@ public class Controller {
 	}
 
 	public void registerclick(int x, int y) {
-		for (Button b : staticButtons.values()) {
+		for (Button b : buttons.values()) {
 			if (b.isInside(x, y)) {
 				b.doBehavior(this);
 				return;
@@ -146,15 +145,9 @@ public class Controller {
 		display.setLogo(logo);
 	}
 
-	// sets the variableButtons HashMap according to the current state
-	// runs when the state is changed
-	public void initializeState() {
-		variableButtons = new HashMap<String, Button>();
-	}
-
 	// checks when the mouse is over any button
 	public void showMouseOver(int mouseX, int mouseY) {
-		for (Button b : staticButtons.values()) {
+		for (Button b : buttons.values()) {
 			b.setMousedOver(b.isInside(mouseX, mouseY));
 		}
 	}
@@ -206,29 +199,7 @@ public class Controller {
 	
 	public String getFileDate() {
 		if(dataPath.startsWith("smb")){
-			System.out.println(this.username);
-			System.out.println(this.password);
-			NtlmPasswordAuthentication auth = new NtlmPasswordAuthentication("", this.username, this.password);
-			try (BufferedReader reader = new BufferedReader(new InputStreamReader(new SmbFileInputStream(new SmbFile(dataPath, auth))))) {
-			    return reader.readLine();
-			} catch (SmbException e) {
-				e.printStackTrace();
-				showPathErrorPopup();
-				System.out.println("failed with username: " + this.username + " and password: " + this.password);
-				return null;
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-				showPathErrorPopup();
-				return null;
-			} catch (UnknownHostException e) {
-				e.printStackTrace();
-				showPathErrorPopup();
-				return null;
-			} catch (IOException e) {
-				e.printStackTrace();
-				showPathErrorPopup();
-				return null;
-			}
+			
 		} else {
 			Scanner sc = null;
 			try {
@@ -239,6 +210,7 @@ public class Controller {
 			}
 			return sc.next();
 		}
+		return "";
 	}
 	
 	public void showPathErrorPopup() {
@@ -278,22 +250,7 @@ public class Controller {
 	public void createNewFile(String date) {
 		System.out.println("clearing file for new day.");
 		if (dataPath.startsWith("smb")) {
-			NtlmPasswordAuthentication auth = new NtlmPasswordAuthentication(null, username, password);
-			SmbFile sFile;
-			try {
-				sFile = new SmbFile(dataPath, auth);
-				SmbFileOutputStream sfos = new SmbFileOutputStream(sFile);
-				sfos.write("".getBytes());
-				sfos.close();
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			} catch (SmbException e) {
-				e.printStackTrace();
-			} catch (UnknownHostException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			
 		} else {
 			PrintWriter printWriter;
 			try {

@@ -93,7 +93,7 @@ public class Quickstart {
                 .build();
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void go() throws IOException {
         // Build a new authorized API client service.
         Sheets service = getSheetsService();
 
