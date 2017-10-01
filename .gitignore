@@ -26,7 +26,11 @@ hs_err_pid*
 .DS_Store
 *.iml
 .idea
-*.project
+.project
+xcuserdata
+*.xcodeproject
+*.xcworspacedata
+
 
 
 
