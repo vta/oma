@@ -8,8 +8,10 @@
 
 import UIKit
 import CoreData
+import GoogleAPIClientForREST
+import GoogleSignIn
 
-class EmergencyListTableViewController: UITableViewController{
+class EmergencyListTableViewController: UITableViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     // MARK: Properties
     var emergencies = [Emergency]()
     var filePath: String = ""
@@ -46,57 +48,6 @@ class EmergencyListTableViewController: UITableViewController{
     
     func loadEmergenciesSMB() {
         
-        //
-        //
-        //        var prefix = String()
-        //        var fileName = String()
-        //        var data: NSMutableData = NSMutableData()
-        //
-        //        let session = URLSession(configuration: URLSessionConfiguration.default)
-        //        let task = session.dataTask(with: URL.init(string: prefix + fileName)!)
-        //        task.resume()
-        //
-        //        let session = URLSession(configuration: URLSessionConfiguration.default)
-        //        if let url = URL(string: "smb://192.168.1.130:TestFile.csv") {
-        //            (session.dataTask(with: url) { (data, response, error) in
-        //                if let error = error {
-        //                    print("Error: \(error)")
-        //                } else if let response = response,
-        //                    let data = data,
-        //                    let string = String(data: data, encoding: .utf8) {
-        //                    print("Response: \(response)")
-        //                    print("DATA:\n\(string)\nEND DATA\n")
-        //                }
-        //            }).resume()
-        //        }
-        
-        //        // variable to contain the read method returning value
-        //        var fileContent: String = ""
-        //
-        //        // init the SMBDriver
-        //        let smbDriver: SMBDriver = SMBDriver()
-        //
-        //        // set debug mode to true
-        //        smbDriver.debug = true
-        //
-        //        // set the connect data you would like to use while reading
-        //        let hostName: String = "192.168.1.130"
-        //        let userName: String = "test"
-        //        let loginPassword: String = "1234"
-        //        let fileNameAndPath: String = "/TestFile"
-        //        let sharedFolder: String = "MyShare"
-        //
-        //        do
-        //        {
-        //            // read a string from a text file on SMB share, if the file does not exists (and the user does not have read permissions) an error will be thrown
-        //            fileContent = try smbDriver.readTextFile(fromHost: hostName, withLogin: userName, withPassword: loginPassword, withFileName: fileNameAndPath, onShare: sharedFolder)
-        //            NSLog("Successfully read file, here is its content:\n\(fileContent)")
-        //        }
-        //        catch
-        //        {
-        //            NSLog("failed to read file content, errorCode: \((error as NSError).code), errorMessage: \((error as NSError).localizedDescription)");
-        //        }
-        
     }
     
     //Function for obtaining data without using SMB. For testing purposes only.
@@ -122,6 +73,35 @@ class EmergencyListTableViewController: UITableViewController{
                 emergencies.append(Emergency(words: values))
             }
         }
+    }
+    
+    // Process the response and display output
+    func displayResultWithTicket(ticket: GTLRServiceTicket,
+                                 finishedWithObject result : GTLRSheets_ValueRange,
+                                 error : NSError?) {
+        
+        if let error = error {
+            showAlert(title: "Error", message: error.localizedDescription)
+            return
+        }
+        
+        var majorsString = ""
+        let rows = result.values!
+        
+        if rows.isEmpty {
+            output.text = "No data found."
+            return
+        }
+        
+        majorsString += "Name, Major:\n"
+        for row in rows {
+            let name = row[0]
+            let major = row[4]
+            
+            majorsString += "\(name), \(major)\n"
+        }
+        
+        output.text = majorsString
     }
     
     func showAlert() {

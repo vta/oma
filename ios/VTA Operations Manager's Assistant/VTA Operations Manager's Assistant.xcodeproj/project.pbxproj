@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D1E1C81C1F35CC563A7C72F /* Pods_VTA_Operations_Manager_s_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B95AF5F79517D92660D85341 /* Pods_VTA_Operations_Manager_s_Assistant.framework */; };
 		8F1275B61E47F01D00945874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1275B51E47F01D00945874 /* Main.storyboard */; };
 		8F3A33ED1E18705900308818 /* EmergencyListContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3A33EC1E18705900308818 /* EmergencyListContentCell.swift */; };
 		8F3CE9E41F8064FB00D6F987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F3CE9E31F8064FB00D6F987 /* GoogleService-Info.plist */; };
@@ -53,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		53831AB9BD16443FD860A318 /* Pods-VTA Operations Manager's Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTA Operations Manager's Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VTA Operations Manager's Assistant/Pods-VTA Operations Manager's Assistant.debug.xcconfig"; sourceTree = "<group>"; };
+		5726CD964DB78EAB3E67B11B /* Pods-VTA Operations Manager's Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTA Operations Manager's Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-VTA Operations Manager's Assistant/Pods-VTA Operations Manager's Assistant.release.xcconfig"; sourceTree = "<group>"; };
 		8F1275B51E47F01D00945874 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8F3A33EC1E18705900308818 /* EmergencyListContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyListContentCell.swift; sourceTree = "<group>"; };
 		8F3CE9E31F8064FB00D6F987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		8FD766721E1609F2008E9D5C /* VTA Operations Manager's AssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VTA Operations Manager's AssistantTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FDE97D11F586F8B00712E3F /* EmergencyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyListTableViewController.swift; sourceTree = "<group>"; };
 		8FFCD7E11EB915A90086BAAF /* EmergencyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyNavigationController.swift; sourceTree = "<group>"; };
+		B95AF5F79517D92660D85341 /* Pods_VTA_Operations_Manager_s_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VTA_Operations_Manager_s_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D1E1C81C1F35CC563A7C72F /* Pods_VTA_Operations_Manager_s_Assistant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +114,7 @@
 		8FA6313C1F587DDA002AA903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B95AF5F79517D92660D85341 /* Pods_VTA_Operations_Manager_s_Assistant.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,6 +126,7 @@
 				8FD766601E1609F2008E9D5C /* VTA Operations Manager's Assistant */,
 				8FD7665F1E1609F2008E9D5C /* Products */,
 				8FA6313C1F587DDA002AA903 /* Frameworks */,
+				9BAD002930CEB188767238AA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,6 +169,15 @@
 			path = "VTA Operations Manager's Assistant";
 			sourceTree = "<group>";
 		};
+		9BAD002930CEB188767238AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53831AB9BD16443FD860A318 /* Pods-VTA Operations Manager's Assistant.debug.xcconfig */,
+				5726CD964DB78EAB3E67B11B /* Pods-VTA Operations Manager's Assistant.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,9 +202,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FD7667B1E1609F2008E9D5C /* Build configuration list for PBXNativeTarget "VTA Operations Manager's Assistant" */;
 			buildPhases = (
+				2CD0A7ABFB707CA671694CB8 /* [CP] Check Pods Manifest.lock */,
 				8FD7665A1E1609F2008E9D5C /* Sources */,
 				8FD7665B1E1609F2008E9D5C /* Frameworks */,
 				8FD7665C1E1609F2008E9D5C /* Resources */,
+				7D3249779D77C5668BF73DFD /* [CP] Embed Pods Frameworks */,
+				A6E9E48F2F26D7A10DD73582 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,6 +308,69 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CD0A7ABFB707CA671694CB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VTA Operations Manager's Assistant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D3249779D77C5668BF73DFD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VTA Operations Manager's Assistant/Pods-VTA Operations Manager's Assistant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTA Operations Manager's Assistant/Pods-VTA Operations Manager's Assistant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6E9E48F2F26D7A10DD73582 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VTA Operations Manager's Assistant/Pods-VTA Operations Manager's Assistant-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTA Operations Manager's Assistant/Pods-VTA Operations Manager's Assistant-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8FA631651F5880C0002AA903 /* Sources */ = {
@@ -470,6 +552,7 @@
 		};
 		8FD7667C1E1609F2008E9D5C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53831AB9BD16443FD860A318 /* Pods-VTA Operations Manager's Assistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -491,6 +574,7 @@
 		};
 		8FD7667D1E1609F2008E9D5C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5726CD964DB78EAB3E67B11B /* Pods-VTA Operations Manager's Assistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
