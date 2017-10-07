@@ -1,9 +1,5 @@
-
-import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -30,13 +26,10 @@ public class Controller {
 												// reset at each state change
 	private Display display;
 	private Emergency_Input emergency_Input;
-	private String dataPath;
-	private String username;
-	private String password;
+	private String tableId;
 	private TableData tableData;
 
 	public Controller(Emergency_Input g) {
-		tableData = new TableData("1qOHnxoBuYycIAfLJ5QBY9vEZvTd3rxub7BivOeriliw");
 		emergency_Input = g;
 		display = new Display(emergency_Input, this);
 		buttons = new HashMap<String, Button>();
@@ -44,10 +37,8 @@ public class Controller {
 		backgroundImages = new HashMap<String, PImage>();
 		loadImages(emergency_Input);
 		putbuttons();
-		String[] metaData = getMetaData();
-		this.dataPath = metaData[0];
-		this.username = metaData[1];
-		this.password = metaData[2];
+		tableId = getMetaData();
+		tableData = new TableData(tableId);
 		checkFileOutdated();
 	}
 
@@ -119,7 +110,7 @@ public class Controller {
 		}
 	}
 
-	public String[] getMetaData() {
+	public String getMetaData() {
 		String txtFile = "Assets/paths.txt";
 		Scanner sc = null;
 		try {
@@ -127,22 +118,20 @@ public class Controller {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		String[] s = {"<none>", "<none>", "<none>"};
-		for(int i = 0; i <  3 && sc.hasNext(); i++) {
-			s[i] = sc.nextLine();
+		String s = "<none>";
+		if(sc.hasNext()) {
+			s = sc.nextLine();
 		}
 		sc.close();
 		return s;
 	}
 
 	public void openPathWindow() {
-		new PathWindow(this.dataPath, this.username, this.password, this);
+		new PathWindow(tableId, this);
 	}
 
-	public void changeMetaData(String newPath, String newUsername, String newPassword) {
-		this.dataPath = newPath;
-		this.username = newUsername;
-		this.password = newPassword;
+	public void changeMetaData(String newId) {
+		this.tableId = newId;
 		String txtFile = "Assets/paths.txt";
 		PrintWriter printWriter;
 		try {
@@ -152,16 +141,16 @@ public class Controller {
 			e.printStackTrace();
 			return;
 		}
-		printWriter.print(newPath + "\n" + newUsername + "\n" + newPassword);
+		printWriter.print("New Id: " + newId);
 		printWriter.close();
 	}
 	
 	public void openFileLocation() {
-		try {
-			Desktop.getDesktop().open(new File(dataPath));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			Desktop.getDesktop().open(new File(tableId));
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	public String getFileDate() {
@@ -169,9 +158,7 @@ public class Controller {
 	}
 	
 	public void showPathErrorPopup() {
-//		JLabel label = new JLabel();
-//		label.setText("Invalid file path. Please configure a new path.");
-		new PathWindow(this.dataPath, this.username, this.password, this)/*.panel.add(label, BorderLayout.BEFORE_FIRST_LINE*/;
+		new PathWindow(this.tableId, this);
 	}
 	
 	public boolean checkFileOutdated() {
