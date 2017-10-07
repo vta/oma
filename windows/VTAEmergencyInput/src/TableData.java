@@ -17,6 +17,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
 
 public class TableData {
     /** Application name. */
@@ -81,11 +82,56 @@ public class TableData {
             } else {
                 String date = values.get(0).get(0) + "";
                 System.out.println("Old date: " + date);
+                return date;
             }
         } catch(Exception e) {
             e.printStackTrace();
         }
         return "";
+    }
+
+    public void appendLine(List l) {
+        List<List<Object>> values = Arrays.asList(Arrays.asList(l.get(0), l.get(1), l.get(2), l.get(3), l.get(4), l.get(5), l.get(6), l.get(7), l.get(8), l.get(9), l.get(10), l.get(11), l.get(12), l.get(13), l.get(14), l.get(15), l.get(16)));
+        ValueRange body = new ValueRange().setValues(values);
+        try {
+            AppendValuesResponse result =
+                    service.spreadsheets().values().append(spreadsheetId, "Sheet1", body)
+                            .setValueInputOption("RAW").execute();
+        } catch(Exception e) {e.printStackTrace();}
+    }
+
+    public void createNewFile(String date) {
+        System.out.println("clearing file for new day.");
+
+        List<List<Object>> values = Arrays.asList(Arrays.asList("","","","","","","","","","","","","","","","",""));
+        List<ValueRange> data = new ArrayList<ValueRange>();
+        for(int i = 3; i < 1000; i++) {
+            data.add(new ValueRange().setRange("Sheet1!A" + i + ":Q" + i).setValues(values));
+        }
+        BatchUpdateValuesRequest batchBody = new BatchUpdateValuesRequest().setValueInputOption("RAW").setData(data);
+        try {
+            BatchUpdateValuesResponse result = service.spreadsheets().values().batchUpdate(spreadsheetId, batchBody).execute();
+        } catch(Exception e) {e.printStackTrace();}
+
+
+
+        values = Arrays.asList(Arrays.asList(date));
+        ValueRange body = new ValueRange().setValues(values);
+        try {
+            UpdateValuesResponse result =
+                    service.spreadsheets().values().update(spreadsheetId, "Sheet1!A1:A1", body)
+                            .setValueInputOption("RAW").execute();
+        } catch(Exception e) {e.printStackTrace();}
+
+        values = Arrays.asList(Arrays.asList("Priority", "Descriptor", "Time", "Date", "Location", "Direction", "Vehicle #1",
+                "Vehicle #2", "Block", "Badge #1", "Badge #2", "Responding Agents", "Media on Scene",
+                "responding supervisors", "Injuries", "Post Accident Test Required", "What Happened"));
+        body = new ValueRange().setValues(values);
+        try {
+            UpdateValuesResponse result =
+                    service.spreadsheets().values().update(spreadsheetId, "Sheet1!A2:Q2", body)
+                            .setValueInputOption("RAW").execute();
+        } catch(Exception e) {e.printStackTrace();}
     }
 
     /**

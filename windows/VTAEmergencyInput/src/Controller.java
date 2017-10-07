@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.List;
 
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -69,23 +70,10 @@ public class Controller {
 		display.show();
 	}
 
-	public void writeLineToFile(String line) {
+	public void writeLineToFile(List<Object> line) {
 		checkFileOutdated();
-		
-		if (dataPath.startsWith("smb")) {
-			
-		} else {
-			PrintWriter printWriter;
-			try {
-				printWriter = new PrintWriter(new FileOutputStream(new File(dataPath), true));
-			} catch (FileNotFoundException e) {
-				System.out.println("missing data file");
-				e.printStackTrace();
-				return;
-			}
-			printWriter.println(line);
-			printWriter.close();
-		}
+		tableData.appendLine(line);
+
 		System.out.println("data has been written to the file");
 	}
 
@@ -197,7 +185,7 @@ public class Controller {
 			try {
 				oldDate = format.parse(oldDateString + " 02:00:00");
 			} catch (ParseException e) {
-				createNewFile(noTimeFormat.format(now));
+				tableData.createNewFile(noTimeFormat.format(now));
 				return true;
 			}
 			if (oldDate != null) {
@@ -210,35 +198,7 @@ public class Controller {
 				}
 			}
 		}
-		createNewFile(noTimeFormat.format(now));
+		tableData.createNewFile(noTimeFormat.format(now));
 		return true;
-	}
-	
-	public void createNewFile(String date) {
-		System.out.println("clearing file for new day.");
-		if (dataPath.startsWith("smb")) {
-			
-		} else {
-			PrintWriter printWriter;
-			try {
-				printWriter = new PrintWriter(new File(dataPath));
-			} catch (FileNotFoundException e) {
-				System.out.println("missing data file");
-				e.printStackTrace();
-				return;
-			}
-			printWriter.print("");
-			printWriter.close();
-			try {
-				printWriter = new PrintWriter(new File(dataPath));
-			} catch (FileNotFoundException e) {
-				System.out.println("missing data file");
-				e.printStackTrace();
-				return;
-			}
-			printWriter.println(date
-					+ "\nRun,Block,Coach,Operator,TimeDue,FirstTime,Direction,LastTime,Pull-InTime,Actual,O/C/P,Op/Eq");
-			printWriter.close();
-		}
 	}
 }
