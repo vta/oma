@@ -18,14 +18,13 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
 
-public class Quickstart {
+public class TableData {
     /** Application name. */
     private static final String APPLICATION_NAME =
-        "Google Sheets API Java Quickstart";
+        "Google Sheets API Java TableData";
 
     /** Directory to store user credentials for this application. */
-    private static final java.io.File DATA_STORE_DIR = new java.io.File(
-        System.getProperty("user.home"), ".credentials/sheets.googleapis.com-java-quickstart");
+    private static final java.io.File DATA_STORE_DIR = new java.io.File("Assets/", ".credentials/sheets.googleapis.com-java-TableData");
 
     /** Global instance of the {@link FileDataStoreFactory}. */
     private static FileDataStoreFactory DATA_STORE_FACTORY;
@@ -43,7 +42,7 @@ public class Quickstart {
      * at ~/.credentials/sheets.googleapis.com-java-quickstart
      */
     private static final List<String> SCOPES =
-        Arrays.asList(SheetsScopes.SPREADSHEETS_READONLY);
+        Arrays.asList(SheetsScopes.SPREADSHEETS);
 
     static {
         try {
@@ -54,6 +53,40 @@ public class Quickstart {
             System.exit(1);
         }
     }
+    // https://docs.google.com/spreadsheets/d/<spreadsheetId>/edit?usp=sharing
+    private String spreadsheetId;
+    private Sheets service;
+
+    public TableData(String id) {
+        // Build a new authorized API client service.
+        try {
+            service = getSheetsService();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        spreadsheetId = id;
+    }
+
+
+    public String getDate() {
+        String range = "Sheet1!A1:A1";
+
+        try {
+            ValueRange response = service.spreadsheets().values()
+                    .get(spreadsheetId, range)
+                    .execute();
+            List<List<Object>> values = response.getValues();
+            if (values == null || values.size() == 0) {
+                System.out.println("No data found.");
+            } else {
+                String date = values.get(0).get(0) + "";
+                System.out.println("Old date: " + date);
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 
     /**
      * Creates an authorized Credential object.
@@ -63,7 +96,7 @@ public class Quickstart {
     public static Credential authorize() throws IOException {
         // Load client secrets.
         InputStream in =
-            Quickstart.class.getResourceAsStream("/client_secret.json");
+            TableData.class.getResourceAsStream("client_secret.json");
         GoogleClientSecrets clientSecrets =
             GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
@@ -92,29 +125,5 @@ public class Quickstart {
                 .setApplicationName(APPLICATION_NAME)
                 .build();
     }
-
-    public static void go() throws IOException {
-        // Build a new authorized API client service.
-        Sheets service = getSheetsService();
-
-        // Prints the names and majors of students in a sample spreadsheet:
-        // https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-        String spreadsheetId = "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms";
-        String range = "Class Data!A2:E";
-        ValueRange response = service.spreadsheets().values()
-            .get(spreadsheetId, range)
-            .execute();
-        List<List<Object>> values = response.getValues();
-        if (values == null || values.size() == 0) {
-            System.out.println("No data found.");
-        } else {
-          System.out.println("Name, Major");
-          for (List row : values) {
-            // Print columns A and E, which correspond to indices 0 and 4.
-            System.out.printf("%s, %s\n", row.get(0), row.get(4));
-          }
-        }
-    }
-
 
 }

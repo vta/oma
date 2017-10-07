@@ -1,33 +1,16 @@
 
 import java.awt.Desktop;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.MalformedURLException;
-import java.net.UnknownHostException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
-
-import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
-import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
-import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
-import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
-import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
-import com.google.api.client.http.HttpTransport;
-import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.api.client.util.store.FileDataStoreFactory;
-import com.google.api.services.sheets.v4.Sheets;
-import com.google.api.services.sheets.v4.SheetsScopes;
-import com.google.api.services.sheets.v4.model.ValueRange;
 
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -49,14 +32,10 @@ public class Controller {
 	private String dataPath;
 	private String username;
 	private String password;
+	private TableData tableData;
 
 	public Controller(Emergency_Input g) {
-		try {
-			Quickstart.go();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		tableData = new TableData("1qOHnxoBuYycIAfLJ5QBY9vEZvTd3rxub7BivOeriliw");
 		emergency_Input = g;
 		display = new Display(emergency_Input, this);
 		buttons = new HashMap<String, Button>();
@@ -196,21 +175,9 @@ public class Controller {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public String getFileDate() {
-		if(dataPath.startsWith("smb")){
-			
-		} else {
-			Scanner sc = null;
-			try {
-				sc = new Scanner(new File(dataPath));
-			} catch (FileNotFoundException e) {
-				showPathErrorPopup();
-				e.printStackTrace();
-			}
-			return sc.next();
-		}
-		return "";
+		return tableData.getDate();
 	}
 	
 	public void showPathErrorPopup() {
