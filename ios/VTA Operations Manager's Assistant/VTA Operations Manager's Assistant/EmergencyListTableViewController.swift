@@ -15,7 +15,10 @@ class EmergencyListTableViewController: UITableViewController, GIDSignInDelegate
     // MARK: Properties
     var emergencies = [Emergency]()
     var filePath: String = ""
+    
     private let service = GTLRSheetsService()
+    private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
+
     
     
     override func viewDidLoad() {
@@ -54,6 +57,7 @@ class EmergencyListTableViewController: UITableViewController, GIDSignInDelegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
         if let error = error {
+            print(error.localizedDescription)
             showAlert()
             self.service.authorizer = nil
         } else {
@@ -104,6 +108,7 @@ class EmergencyListTableViewController: UITableViewController, GIDSignInDelegate
                                  error : NSError?) {
         
         if let error = error {
+            print(error.localizedDescription)
             showAlert()
             return
         }
@@ -121,7 +126,7 @@ class EmergencyListTableViewController: UITableViewController, GIDSignInDelegate
             for s in row {
                 str.append(s as! String)
             }
-            emergencies.append(Emergency.init(str))
+            emergencies.append(Emergency.init(words: str))
         }
     }
     

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D1E1C81C1F35CC563A7C72F /* Pods_VTA_Operations_Manager_s_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B95AF5F79517D92660D85341 /* Pods_VTA_Operations_Manager_s_Assistant.framework */; };
 		8F1275B61E47F01D00945874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1275B51E47F01D00945874 /* Main.storyboard */; };
 		8F3A33ED1E18705900308818 /* EmergencyListContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3A33EC1E18705900308818 /* EmergencyListContentCell.swift */; };
 		8F3CE9E41F8064FB00D6F987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F3CE9E31F8064FB00D6F987 /* GoogleService-Info.plist */; };
@@ -82,7 +81,6 @@
 		8FD766721E1609F2008E9D5C /* VTA Operations Manager's AssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VTA Operations Manager's AssistantTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FDE97D11F586F8B00712E3F /* EmergencyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyListTableViewController.swift; sourceTree = "<group>"; };
 		8FFCD7E11EB915A90086BAAF /* EmergencyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyNavigationController.swift; sourceTree = "<group>"; };
-		B95AF5F79517D92660D85341 /* Pods_VTA_Operations_Manager_s_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VTA_Operations_Manager_s_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D1E1C81C1F35CC563A7C72F /* Pods_VTA_Operations_Manager_s_Assistant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +111,6 @@
 		8FA6313C1F587DDA002AA903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B95AF5F79517D92660D85341 /* Pods_VTA_Operations_Manager_s_Assistant.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
