@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
@@ -460,25 +462,34 @@ public class ObjectCreator extends JPanel implements ActionListener{
 	
 	public void createOCP() {
 		String s = "";
-		String[] values = new String[12];
-		s += runField.getText();
-		s += blockField.getText();
-		s += coachField.getText();
-		s += operatorField.getText();
-		s += timeDueField.getText() + timeDueAMPMBox.getSelectedItem();
-		s += firstTimeField.getText() + firstTimeAMPMBox.getSelectedItem();
-		s += (String) directionBox.getSelectedItem();
-		s += lastTimeField.getText() + lastTimeAMPMBox.getSelectedItem();
-		s += pullInTimeField.getText() + pullInTimeAMPMBox.getSelectedItem();
+		s += runField.getText() + ",";
+		s += blockField.getText() + ",";
+		s += coachField.getText() + ",";
+		s += operatorField.getText() + ",";
+		s += timeDueField.getText() + timeDueAMPMBox.getSelectedItem() + ",";
+		s += firstTimeField.getText() + firstTimeAMPMBox.getSelectedItem() + ",";
+		s += directionBox.getSelectedItem() + ",";
+		s += lastTimeField.getText() + lastTimeAMPMBox.getSelectedItem() + ",";
+		s += pullInTimeField.getText() + pullInTimeAMPMBox.getSelectedItem() + ",";
 		if(ocpBox.getSelectedItem().equals("Outlate")) { // checks if the actualTime field is needed
-			s += actualTimeField.getText() + actualTimeAMPMBox.getSelectedItem();
+			s += actualTimeField.getText() + actualTimeAMPMBox.getSelectedItem() + ",";
 		} else {
-			s += "N/A";
+			s += "N/A" + ",";
 		}
-		s += (String) ocpBox.getSelectedItem();
-		s += (String) oeBox.getSelectedItem();
-		controller.writeLineToFile(s);
-		displayValues(values);
+		s += ocpBox.getSelectedItem() + ",";
+		s += oeBox.getSelectedItem() + ",";
+        while(s.contains(",,")){
+            int i = s.indexOf(",,");
+            String first = s.substring(0, i + 1);
+            String rest = s.substring(i + 1, s.length());
+            s = first + "N/A" + rest;
+        }
+        List<Object> list = new ArrayList<Object>();
+        for(String str: s.split(",")) {
+            list.add(str);
+            System.out.println("a");
+        }
+        controller.writeLineToFile(list);
 	}
 	
 	public void displayValues(String[] values) {

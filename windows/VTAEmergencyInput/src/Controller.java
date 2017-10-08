@@ -19,11 +19,8 @@ public class Controller {
 	// run,block,coach,operator,timeDue,firstTime,direction,lastTime,pullInTime,actualTime,OCP,OE
 	HashMap<String, PImage> buttonImages;
 	HashMap<String, PImage> backgroundImages;
-	HashMap<String, Button> buttons; // buttons that display regardless of
-											// state
-	HashMap<String, Button> variableButtons; // buttons that are
-												// state-dependant; will be
-												// reset at each state change
+	HashMap<String, Button> buttons;
+
 	private Display display;
 	private Emergency_Input emergency_Input;
 	private String tableId;
