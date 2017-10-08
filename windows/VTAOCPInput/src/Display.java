@@ -26,7 +26,7 @@ public class Display {
 		oCP_Input.textFont(font, 15);
 		oCP_Input.fill(0);
 		oCP_Input.textAlign(OCP_Input.CENTER);
-		for(Button b: controller.staticButtons.values()) {
+		for(Button b: controller.buttons.values()) {
 			showButton(b);
 		}
 		oCP_Input.textAlign(OCP_Input.LEFT);

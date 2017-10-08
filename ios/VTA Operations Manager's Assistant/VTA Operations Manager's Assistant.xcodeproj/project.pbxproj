@@ -8,25 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8F1275B61E47F01D00945874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1275B51E47F01D00945874 /* Main.storyboard */; };
-		8F2B6AD11F5875EA006E4722 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F2B6AAA1F5875EA006E4722 /* Info.plist */; };
-		8F2B6AD21F5875EA006E4722 /* libdsm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2B6AB81F5875EA006E4722 /* libdsm.a */; };
-		8F2B6AD31F5875EA006E4722 /* libtasn1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2B6AB91F5875EA006E4722 /* libtasn1.a */; };
-		8F2B6AD41F5875EA006E4722 /* TONetBIOSNameService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B6ABB1F5875EA006E4722 /* TONetBIOSNameService.m */; };
-		8F2B6AD51F5875EA006E4722 /* TONetBIOSNameServiceEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B6ABD1F5875EA006E4722 /* TONetBIOSNameServiceEntry.m */; };
-		8F2B6AD61F5875EA006E4722 /* TOSMBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B6AC11F5875EA006E4722 /* TOSMBConstants.m */; };
-		8F2B6AD71F5875EA006E4722 /* TOSMBSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B6AC31F5875EA006E4722 /* TOSMBSession.m */; };
-		8F2B6AD81F5875EA006E4722 /* TOSMBSessionDownloadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B6AC51F5875EA006E4722 /* TOSMBSessionDownloadTask.m */; };
-		8F2B6AD91F5875EA006E4722 /* TOSMBSessionFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B6AC81F5875EA006E4722 /* TOSMBSessionFile.m */; };
-		8F2B6ADA1F5875EA006E4722 /* TOSMBSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B6ACC1F5875EA006E4722 /* TOSMBSessionTask.m */; };
-		8F2B6ADB1F5875EA006E4722 /* TOSMBSessionUploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B6ACF1F5875EA006E4722 /* TOSMBSessionUploadTask.m */; };
 		8F3A33ED1E18705900308818 /* EmergencyListContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3A33EC1E18705900308818 /* EmergencyListContentCell.swift */; };
+		8F3CE9E41F8064FB00D6F987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F3CE9E31F8064FB00D6F987 /* GoogleService-Info.plist */; };
 		8F4AD06F1F3460E100668195 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4AD06E1F3460E100668195 /* AlertViewController.swift */; };
 		8F54B0561F3942C300A7F8F6 /* VTA Operations Manager's Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F54B0541F3942C300A7F8F6 /* VTA Operations Manager's Assistant.xcdatamodeld */; };
 		8F5B55BF1F28931A00361349 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5B55BE1F28931A00361349 /* OptionsViewController.swift */; };
 		8F6822C31F3BB9A4001D3AAC /* OCPNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6822C21F3BB9A4001D3AAC /* OCPNavigationController.swift */; };
-		8FA6316D1F5880C0002AA903 /* TOSMBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA6316C1F5880C0002AA903 /* TOSMBClient.m */; };
-		8FA6316E1F5880C0002AA903 /* TOSMBClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8FA6316B1F5880C0002AA903 /* TOSMBClient.h */; };
-		8FA631731F588270002AA903 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA631721F588270002AA903 /* libiconv.tbd */; };
 		8FBBAA461E16DB0200CF697A /* EmergencyContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBBAA441E16DB0200CF697A /* EmergencyContentCell.swift */; };
 		8FBBAA481E16DB6F00CF697A /* Emergency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBBAA471E16DB6F00CF697A /* Emergency.swift */; };
 		8FC8643D1F3429EA00C19486 /* OCPListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC864381F3429EA00C19486 /* OCPListTableViewController.swift */; };
@@ -60,98 +47,23 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				8FA6316E1F5880C0002AA903 /* TOSMBClient.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		53831AB9BD16443FD860A318 /* Pods-VTA Operations Manager's Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTA Operations Manager's Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VTA Operations Manager's Assistant/Pods-VTA Operations Manager's Assistant.debug.xcconfig"; sourceTree = "<group>"; };
+		5726CD964DB78EAB3E67B11B /* Pods-VTA Operations Manager's Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTA Operations Manager's Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-VTA Operations Manager's Assistant/Pods-VTA Operations Manager's Assistant.release.xcconfig"; sourceTree = "<group>"; };
 		8F1275B51E47F01D00945874 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8F2B6AAA1F5875EA006E4722 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TOSMBClient/Info.plist; sourceTree = "<group>"; };
-		8F2B6AAD1F5875EA006E4722 /* bdsm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bdsm.h; sourceTree = "<group>"; };
-		8F2B6AAE1F5875EA006E4722 /* libtasn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libtasn1.h; sourceTree = "<group>"; };
-		8F2B6AAF1F5875EA006E4722 /* netbios_defs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = netbios_defs.h; sourceTree = "<group>"; };
-		8F2B6AB01F5875EA006E4722 /* netbios_ns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = netbios_ns.h; sourceTree = "<group>"; };
-		8F2B6AB11F5875EA006E4722 /* smb_defs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_defs.h; sourceTree = "<group>"; };
-		8F2B6AB21F5875EA006E4722 /* smb_dir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_dir.h; sourceTree = "<group>"; };
-		8F2B6AB31F5875EA006E4722 /* smb_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_file.h; sourceTree = "<group>"; };
-		8F2B6AB41F5875EA006E4722 /* smb_session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_session.h; sourceTree = "<group>"; };
-		8F2B6AB51F5875EA006E4722 /* smb_share.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_share.h; sourceTree = "<group>"; };
-		8F2B6AB61F5875EA006E4722 /* smb_stat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_stat.h; sourceTree = "<group>"; };
-		8F2B6AB71F5875EA006E4722 /* smb_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smb_types.h; sourceTree = "<group>"; };
-		8F2B6AB81F5875EA006E4722 /* libdsm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdsm.a; sourceTree = "<group>"; };
-		8F2B6AB91F5875EA006E4722 /* libtasn1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libtasn1.a; sourceTree = "<group>"; };
-		8F2B6ABA1F5875EA006E4722 /* TONetBIOSNameService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TONetBIOSNameService.h; path = TOSMBClient/TONetBIOSNameService.h; sourceTree = "<group>"; };
-		8F2B6ABB1F5875EA006E4722 /* TONetBIOSNameService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TONetBIOSNameService.m; path = TOSMBClient/TONetBIOSNameService.m; sourceTree = "<group>"; };
-		8F2B6ABC1F5875EA006E4722 /* TONetBIOSNameServiceEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TONetBIOSNameServiceEntry.h; path = TOSMBClient/TONetBIOSNameServiceEntry.h; sourceTree = "<group>"; };
-		8F2B6ABD1F5875EA006E4722 /* TONetBIOSNameServiceEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TONetBIOSNameServiceEntry.m; path = TOSMBClient/TONetBIOSNameServiceEntry.m; sourceTree = "<group>"; };
-		8F2B6ABE1F5875EA006E4722 /* TONetBIOSNameServiceEntryPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TONetBIOSNameServiceEntryPrivate.h; path = TOSMBClient/TONetBIOSNameServiceEntryPrivate.h; sourceTree = "<group>"; };
-		8F2B6ABF1F5875EA006E4722 /* TOSMBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSMBClient.h; path = TOSMBClient/TOSMBClient.h; sourceTree = "<group>"; };
-		8F2B6AC01F5875EA006E4722 /* TOSMBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSMBConstants.h; path = TOSMBClient/TOSMBConstants.h; sourceTree = "<group>"; };
-		8F2B6AC11F5875EA006E4722 /* TOSMBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOSMBConstants.m; path = TOSMBClient/TOSMBConstants.m; sourceTree = "<group>"; };
-		8F2B6AC21F5875EA006E4722 /* TOSMBSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSMBSession.h; path = TOSMBClient/TOSMBSession.h; sourceTree = "<group>"; };
-		8F2B6AC31F5875EA006E4722 /* TOSMBSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOSMBSession.m; path = TOSMBClient/TOSMBSession.m; sourceTree = "<group>"; };
-		8F2B6AC41F5875EA006E4722 /* TOSMBSessionDownloadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSMBSessionDownloadTask.h; path = TOSMBClient/TOSMBSessionDownloadTask.h; sourceTree = "<group>"; };
-		8F2B6AC51F5875EA006E4722 /* TOSMBSessionDownloadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOSMBSessionDownloadTask.m; path = TOSMBClient/TOSMBSessionDownloadTask.m; sourceTree = "<group>"; };
-		8F2B6AC61F5875EA006E4722 /* TOSMBSessionDownloadTaskPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSMBSessionDownloadTaskPrivate.h; path = TOSMBClient/TOSMBSessionDownloadTaskPrivate.h; sourceTree = "<group>"; };
-		8F2B6AC71F5875EA006E4722 /* TOSMBSessionFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSMBSessionFile.h; path = TOSMBClient/TOSMBSessionFile.h; sourceTree = "<group>"; };
-		8F2B6AC81F5875EA006E4722 /* TOSMBSessionFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOSMBSessionFile.m; path = TOSMBClient/TOSMBSessionFile.m; sourceTree = "<group>"; };
-		8F2B6AC91F5875EA006E4722 /* TOSMBSessionFilePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSMBSessionFilePrivate.h; path = TOSMBClient/TOSMBSessionFilePrivate.h; sourceTree = "<group>"; };
-		8F2B6ACA1F5875EA006E4722 /* TOSMBSessionPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSMBSessionPrivate.h; path = TOSMBClient/TOSMBSessionPrivate.h; sourceTree = "<group>"; };
-		8F2B6ACB1F5875EA006E4722 /* TOSMBSessionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSMBSessionTask.h; path = TOSMBClient/TOSMBSessionTask.h; sourceTree = "<group>"; };
-		8F2B6ACC1F5875EA006E4722 /* TOSMBSessionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOSMBSessionTask.m; path = TOSMBClient/TOSMBSessionTask.m; sourceTree = "<group>"; };
-		8F2B6ACD1F5875EA006E4722 /* TOSMBSessionTaskPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSMBSessionTaskPrivate.h; path = TOSMBClient/TOSMBSessionTaskPrivate.h; sourceTree = "<group>"; };
-		8F2B6ACE1F5875EA006E4722 /* TOSMBSessionUploadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSMBSessionUploadTask.h; path = TOSMBClient/TOSMBSessionUploadTask.h; sourceTree = "<group>"; };
-		8F2B6ACF1F5875EA006E4722 /* TOSMBSessionUploadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOSMBSessionUploadTask.m; path = TOSMBClient/TOSMBSessionUploadTask.m; sourceTree = "<group>"; };
-		8F2B6AD01F5875EA006E4722 /* TOSMBSessionUploadTaskPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOSMBSessionUploadTaskPrivate.h; path = TOSMBClient/TOSMBSessionUploadTaskPrivate.h; sourceTree = "<group>"; };
 		8F3A33EC1E18705900308818 /* EmergencyListContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyListContentCell.swift; sourceTree = "<group>"; };
+		8F3CE9E31F8064FB00D6F987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8F4AD06E1F3460E100668195 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		8F54B0551F3942C300A7F8F6 /* VTA Operations Manager's Assistant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "VTA Operations Manager's Assistant.xcdatamodel"; sourceTree = "<group>"; };
 		8F58D85F1E96AD9600F1A095 /* VTA Operations Manager's Assistant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VTA Operations Manager's Assistant.entitlements"; sourceTree = "<group>"; };
 		8F5B55BE1F28931A00361349 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		8F6822C21F3BB9A4001D3AAC /* OCPNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCPNavigationController.swift; sourceTree = "<group>"; };
-		8FA6313E1F587DDA002AA903 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8FA631411F587DDA002AA903 /* bdsm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bdsm.h; sourceTree = "<group>"; };
-		8FA631421F587DDA002AA903 /* libtasn1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libtasn1.h; sourceTree = "<group>"; };
-		8FA631431F587DDA002AA903 /* netbios_defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = netbios_defs.h; sourceTree = "<group>"; };
-		8FA631441F587DDA002AA903 /* netbios_ns.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = netbios_ns.h; sourceTree = "<group>"; };
-		8FA631451F587DDA002AA903 /* smb_defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smb_defs.h; sourceTree = "<group>"; };
-		8FA631461F587DDA002AA903 /* smb_dir.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smb_dir.h; sourceTree = "<group>"; };
-		8FA631471F587DDA002AA903 /* smb_file.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smb_file.h; sourceTree = "<group>"; };
-		8FA631481F587DDA002AA903 /* smb_session.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smb_session.h; sourceTree = "<group>"; };
-		8FA631491F587DDA002AA903 /* smb_share.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smb_share.h; sourceTree = "<group>"; };
-		8FA6314A1F587DDA002AA903 /* smb_stat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smb_stat.h; sourceTree = "<group>"; };
-		8FA6314B1F587DDA002AA903 /* smb_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smb_types.h; sourceTree = "<group>"; };
-		8FA6314C1F587DDA002AA903 /* libdsm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdsm.a; sourceTree = "<group>"; };
-		8FA6314D1F587DDA002AA903 /* libtasn1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libtasn1.a; sourceTree = "<group>"; };
-		8FA6314E1F587DDA002AA903 /* TONetBIOSNameService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TONetBIOSNameService.h; sourceTree = "<group>"; };
-		8FA6314F1F587DDA002AA903 /* TONetBIOSNameService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TONetBIOSNameService.m; sourceTree = "<group>"; };
-		8FA631501F587DDA002AA903 /* TONetBIOSNameServiceEntry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TONetBIOSNameServiceEntry.h; sourceTree = "<group>"; };
-		8FA631511F587DDA002AA903 /* TONetBIOSNameServiceEntry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TONetBIOSNameServiceEntry.m; sourceTree = "<group>"; };
-		8FA631521F587DDA002AA903 /* TONetBIOSNameServiceEntryPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TONetBIOSNameServiceEntryPrivate.h; sourceTree = "<group>"; };
-		8FA631531F587DDA002AA903 /* TOSMBClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBClient.h; sourceTree = "<group>"; };
-		8FA631541F587DDA002AA903 /* TOSMBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBConstants.h; sourceTree = "<group>"; };
-		8FA631551F587DDA002AA903 /* TOSMBConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOSMBConstants.m; sourceTree = "<group>"; };
-		8FA631561F587DDA002AA903 /* TOSMBSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBSession.h; sourceTree = "<group>"; };
-		8FA631571F587DDA002AA903 /* TOSMBSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOSMBSession.m; sourceTree = "<group>"; };
-		8FA631581F587DDA002AA903 /* TOSMBSessionDownloadTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBSessionDownloadTask.h; sourceTree = "<group>"; };
-		8FA631591F587DDA002AA903 /* TOSMBSessionDownloadTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOSMBSessionDownloadTask.m; sourceTree = "<group>"; };
-		8FA6315A1F587DDA002AA903 /* TOSMBSessionDownloadTaskPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBSessionDownloadTaskPrivate.h; sourceTree = "<group>"; };
-		8FA6315B1F587DDA002AA903 /* TOSMBSessionFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBSessionFile.h; sourceTree = "<group>"; };
-		8FA6315C1F587DDA002AA903 /* TOSMBSessionFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOSMBSessionFile.m; sourceTree = "<group>"; };
-		8FA6315D1F587DDA002AA903 /* TOSMBSessionFilePrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBSessionFilePrivate.h; sourceTree = "<group>"; };
-		8FA6315E1F587DDA002AA903 /* TOSMBSessionPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBSessionPrivate.h; sourceTree = "<group>"; };
-		8FA6315F1F587DDA002AA903 /* TOSMBSessionTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBSessionTask.h; sourceTree = "<group>"; };
-		8FA631601F587DDA002AA903 /* TOSMBSessionTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOSMBSessionTask.m; sourceTree = "<group>"; };
-		8FA631611F587DDA002AA903 /* TOSMBSessionTaskPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBSessionTaskPrivate.h; sourceTree = "<group>"; };
-		8FA631621F587DDA002AA903 /* TOSMBSessionUploadTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBSessionUploadTask.h; sourceTree = "<group>"; };
-		8FA631631F587DDA002AA903 /* TOSMBSessionUploadTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOSMBSessionUploadTask.m; sourceTree = "<group>"; };
-		8FA631641F587DDA002AA903 /* TOSMBSessionUploadTaskPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBSessionUploadTaskPrivate.h; sourceTree = "<group>"; };
 		8FA631691F5880C0002AA903 /* libTOSMBClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTOSMBClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		8FA6316B1F5880C0002AA903 /* TOSMBClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSMBClient.h; sourceTree = "<group>"; };
-		8FA6316C1F5880C0002AA903 /* TOSMBClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOSMBClient.m; sourceTree = "<group>"; };
-		8FA631721F588270002AA903 /* libiconv.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = libiconv.tbd; sourceTree = "<group>"; };
 		8FBBAA441E16DB0200CF697A /* EmergencyContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyContentCell.swift; sourceTree = "<group>"; };
 		8FBBAA471E16DB6F00CF697A /* Emergency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emergency.swift; sourceTree = "<group>"; };
 		8FC864381F3429EA00C19486 /* OCPListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCPListTableViewController.swift; sourceTree = "<group>"; };
@@ -167,7 +79,6 @@
 		8FD7666B1E1609F2008E9D5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FD7666D1E1609F2008E9D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FD766721E1609F2008E9D5C /* VTA Operations Manager's AssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VTA Operations Manager's AssistantTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8FDE97D01F586D7200712E3F /* VTA Operations Manager's Assistant-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VTA Operations Manager's Assistant-Bridging-Header.h"; sourceTree = "<group>"; };
 		8FDE97D11F586F8B00712E3F /* EmergencyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyListTableViewController.swift; sourceTree = "<group>"; };
 		8FFCD7E11EB915A90086BAAF /* EmergencyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,9 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FA631731F588270002AA903 /* libiconv.tbd in Frameworks */,
-				8F2B6AD21F5875EA006E4722 /* libdsm.a in Frameworks */,
-				8F2B6AD31F5875EA006E4722 /* libtasn1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,162 +108,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8F2B6AA91F5875A6006E4722 /* TOSMBClient */ = {
-			isa = PBXGroup;
-			children = (
-				8F2B6AAA1F5875EA006E4722 /* Info.plist */,
-				8F2B6AAB1F5875EA006E4722 /* libdsm */,
-				8F2B6ABA1F5875EA006E4722 /* TONetBIOSNameService.h */,
-				8F2B6ABB1F5875EA006E4722 /* TONetBIOSNameService.m */,
-				8F2B6ABC1F5875EA006E4722 /* TONetBIOSNameServiceEntry.h */,
-				8F2B6ABD1F5875EA006E4722 /* TONetBIOSNameServiceEntry.m */,
-				8F2B6ABE1F5875EA006E4722 /* TONetBIOSNameServiceEntryPrivate.h */,
-				8F2B6ABF1F5875EA006E4722 /* TOSMBClient.h */,
-				8F2B6AC01F5875EA006E4722 /* TOSMBConstants.h */,
-				8F2B6AC11F5875EA006E4722 /* TOSMBConstants.m */,
-				8F2B6AC21F5875EA006E4722 /* TOSMBSession.h */,
-				8F2B6AC31F5875EA006E4722 /* TOSMBSession.m */,
-				8F2B6AC41F5875EA006E4722 /* TOSMBSessionDownloadTask.h */,
-				8F2B6AC51F5875EA006E4722 /* TOSMBSessionDownloadTask.m */,
-				8F2B6AC61F5875EA006E4722 /* TOSMBSessionDownloadTaskPrivate.h */,
-				8F2B6AC71F5875EA006E4722 /* TOSMBSessionFile.h */,
-				8F2B6AC81F5875EA006E4722 /* TOSMBSessionFile.m */,
-				8F2B6AC91F5875EA006E4722 /* TOSMBSessionFilePrivate.h */,
-				8F2B6ACA1F5875EA006E4722 /* TOSMBSessionPrivate.h */,
-				8F2B6ACB1F5875EA006E4722 /* TOSMBSessionTask.h */,
-				8F2B6ACC1F5875EA006E4722 /* TOSMBSessionTask.m */,
-				8F2B6ACD1F5875EA006E4722 /* TOSMBSessionTaskPrivate.h */,
-				8F2B6ACE1F5875EA006E4722 /* TOSMBSessionUploadTask.h */,
-				8F2B6ACF1F5875EA006E4722 /* TOSMBSessionUploadTask.m */,
-				8F2B6AD01F5875EA006E4722 /* TOSMBSessionUploadTaskPrivate.h */,
-			);
-			name = TOSMBClient;
-			sourceTree = "<group>";
-		};
-		8F2B6AAB1F5875EA006E4722 /* libdsm */ = {
-			isa = PBXGroup;
-			children = (
-				8FA631721F588270002AA903 /* libiconv.tbd */,
-				8F2B6AAC1F5875EA006E4722 /* bdsm */,
-				8F2B6AB81F5875EA006E4722 /* libdsm.a */,
-				8F2B6AB91F5875EA006E4722 /* libtasn1.a */,
-			);
-			name = libdsm;
-			path = TOSMBClient/libdsm;
-			sourceTree = "<group>";
-		};
-		8F2B6AAC1F5875EA006E4722 /* bdsm */ = {
-			isa = PBXGroup;
-			children = (
-				8F2B6AAD1F5875EA006E4722 /* bdsm.h */,
-				8F2B6AAE1F5875EA006E4722 /* libtasn1.h */,
-				8F2B6AAF1F5875EA006E4722 /* netbios_defs.h */,
-				8F2B6AB01F5875EA006E4722 /* netbios_ns.h */,
-				8F2B6AB11F5875EA006E4722 /* smb_defs.h */,
-				8F2B6AB21F5875EA006E4722 /* smb_dir.h */,
-				8F2B6AB31F5875EA006E4722 /* smb_file.h */,
-				8F2B6AB41F5875EA006E4722 /* smb_session.h */,
-				8F2B6AB51F5875EA006E4722 /* smb_share.h */,
-				8F2B6AB61F5875EA006E4722 /* smb_stat.h */,
-				8F2B6AB71F5875EA006E4722 /* smb_types.h */,
-			);
-			path = bdsm;
-			sourceTree = "<group>";
-		};
-		8F54B0671F39901A00A7F8F6 /* libs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = libs;
-			path = "VTA Emergency Viewer";
-			sourceTree = "<group>";
-		};
 		8FA6313C1F587DDA002AA903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8FA6313D1F587DDA002AA903 /* TOSMBClient */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8FA6313D1F587DDA002AA903 /* TOSMBClient */ = {
-			isa = PBXGroup;
-			children = (
-				8FA6313E1F587DDA002AA903 /* Info.plist */,
-				8FA6313F1F587DDA002AA903 /* libdsm */,
-				8FA6314E1F587DDA002AA903 /* TONetBIOSNameService.h */,
-				8FA6314F1F587DDA002AA903 /* TONetBIOSNameService.m */,
-				8FA631501F587DDA002AA903 /* TONetBIOSNameServiceEntry.h */,
-				8FA631511F587DDA002AA903 /* TONetBIOSNameServiceEntry.m */,
-				8FA631521F587DDA002AA903 /* TONetBIOSNameServiceEntryPrivate.h */,
-				8FA631531F587DDA002AA903 /* TOSMBClient.h */,
-				8FA631541F587DDA002AA903 /* TOSMBConstants.h */,
-				8FA631551F587DDA002AA903 /* TOSMBConstants.m */,
-				8FA631561F587DDA002AA903 /* TOSMBSession.h */,
-				8FA631571F587DDA002AA903 /* TOSMBSession.m */,
-				8FA631581F587DDA002AA903 /* TOSMBSessionDownloadTask.h */,
-				8FA631591F587DDA002AA903 /* TOSMBSessionDownloadTask.m */,
-				8FA6315A1F587DDA002AA903 /* TOSMBSessionDownloadTaskPrivate.h */,
-				8FA6315B1F587DDA002AA903 /* TOSMBSessionFile.h */,
-				8FA6315C1F587DDA002AA903 /* TOSMBSessionFile.m */,
-				8FA6315D1F587DDA002AA903 /* TOSMBSessionFilePrivate.h */,
-				8FA6315E1F587DDA002AA903 /* TOSMBSessionPrivate.h */,
-				8FA6315F1F587DDA002AA903 /* TOSMBSessionTask.h */,
-				8FA631601F587DDA002AA903 /* TOSMBSessionTask.m */,
-				8FA631611F587DDA002AA903 /* TOSMBSessionTaskPrivate.h */,
-				8FA631621F587DDA002AA903 /* TOSMBSessionUploadTask.h */,
-				8FA631631F587DDA002AA903 /* TOSMBSessionUploadTask.m */,
-				8FA631641F587DDA002AA903 /* TOSMBSessionUploadTaskPrivate.h */,
-			);
-			path = TOSMBClient;
-			sourceTree = "<group>";
-		};
-		8FA6313F1F587DDA002AA903 /* libdsm */ = {
-			isa = PBXGroup;
-			children = (
-				8FA631401F587DDA002AA903 /* bdsm */,
-				8FA6314C1F587DDA002AA903 /* libdsm.a */,
-				8FA6314D1F587DDA002AA903 /* libtasn1.a */,
-			);
-			path = libdsm;
-			sourceTree = "<group>";
-		};
-		8FA631401F587DDA002AA903 /* bdsm */ = {
-			isa = PBXGroup;
-			children = (
-				8FA631411F587DDA002AA903 /* bdsm.h */,
-				8FA631421F587DDA002AA903 /* libtasn1.h */,
-				8FA631431F587DDA002AA903 /* netbios_defs.h */,
-				8FA631441F587DDA002AA903 /* netbios_ns.h */,
-				8FA631451F587DDA002AA903 /* smb_defs.h */,
-				8FA631461F587DDA002AA903 /* smb_dir.h */,
-				8FA631471F587DDA002AA903 /* smb_file.h */,
-				8FA631481F587DDA002AA903 /* smb_session.h */,
-				8FA631491F587DDA002AA903 /* smb_share.h */,
-				8FA6314A1F587DDA002AA903 /* smb_stat.h */,
-				8FA6314B1F587DDA002AA903 /* smb_types.h */,
-			);
-			path = bdsm;
-			sourceTree = "<group>";
-		};
-		8FA6316A1F5880C0002AA903 /* TOSMBClient */ = {
-			isa = PBXGroup;
-			children = (
-				8FA6316B1F5880C0002AA903 /* TOSMBClient.h */,
-				8FA6316C1F5880C0002AA903 /* TOSMBClient.m */,
-			);
-			path = TOSMBClient;
 			sourceTree = "<group>";
 		};
 		8FD766551E1609F2008E9D5C = {
 			isa = PBXGroup;
 			children = (
-				8F2B6AA91F5875A6006E4722 /* TOSMBClient */,
+				8F3CE9E31F8064FB00D6F987 /* GoogleService-Info.plist */,
 				8FD766601E1609F2008E9D5C /* VTA Operations Manager's Assistant */,
-				8F54B0671F39901A00A7F8F6 /* libs */,
-				8FA6316A1F5880C0002AA903 /* TOSMBClient */,
 				8FD7665F1E1609F2008E9D5C /* Products */,
 				8FA6313C1F587DDA002AA903 /* Frameworks */,
+				9BAD002930CEB188767238AA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -394,9 +161,17 @@
 				8FBBAA471E16DB6F00CF697A /* Emergency.swift */,
 				8F5B55BE1F28931A00361349 /* OptionsViewController.swift */,
 				8F54B0541F3942C300A7F8F6 /* VTA Operations Manager's Assistant.xcdatamodeld */,
-				8FDE97D01F586D7200712E3F /* VTA Operations Manager's Assistant-Bridging-Header.h */,
 			);
 			path = "VTA Operations Manager's Assistant";
+			sourceTree = "<group>";
+		};
+		9BAD002930CEB188767238AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53831AB9BD16443FD860A318 /* Pods-VTA Operations Manager's Assistant.debug.xcconfig */,
+				5726CD964DB78EAB3E67B11B /* Pods-VTA Operations Manager's Assistant.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FD7667B1E1609F2008E9D5C /* Build configuration list for PBXNativeTarget "VTA Operations Manager's Assistant" */;
 			buildPhases = (
+				2CD0A7ABFB707CA671694CB8 /* [CP] Check Pods Manifest.lock */,
 				8FD7665A1E1609F2008E9D5C /* Sources */,
 				8FD7665B1E1609F2008E9D5C /* Frameworks */,
 				8FD7665C1E1609F2008E9D5C /* Resources */,
+				7D3249779D77C5668BF73DFD /* [CP] Embed Pods Frameworks */,
+				A6E9E48F2F26D7A10DD73582 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -511,8 +289,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F2B6AD11F5875EA006E4722 /* Info.plist in Resources */,
 				8F1275B61E47F01D00945874 /* Main.storyboard in Resources */,
+				8F3CE9E41F8064FB00D6F987 /* GoogleService-Info.plist in Resources */,
 				8FD7666C1E1609F2008E9D5C /* LaunchScreen.storyboard in Resources */,
 				8FD766691E1609F2008E9D5C /* Assets.xcassets in Resources */,
 			);
@@ -527,12 +305,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2CD0A7ABFB707CA671694CB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VTA Operations Manager's Assistant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D3249779D77C5668BF73DFD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VTA Operations Manager's Assistant/Pods-VTA Operations Manager's Assistant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTA Operations Manager's Assistant/Pods-VTA Operations Manager's Assistant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6E9E48F2F26D7A10DD73582 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VTA Operations Manager's Assistant/Pods-VTA Operations Manager's Assistant-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTA Operations Manager's Assistant/Pods-VTA Operations Manager's Assistant-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8FA631651F5880C0002AA903 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FA6316D1F5880C0002AA903 /* TOSMBClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,22 +388,14 @@
 				8FC864411F3429EA00C19486 /* OCP.swift in Sources */,
 				8F54B0561F3942C300A7F8F6 /* VTA Operations Manager's Assistant.xcdatamodeld in Sources */,
 				8F5B55BF1F28931A00361349 /* OptionsViewController.swift in Sources */,
-				8F2B6AD91F5875EA006E4722 /* TOSMBSessionFile.m in Sources */,
 				8FD35C921E174A3D00F80A57 /* EmergencyTableViewController.swift in Sources */,
-				8F2B6ADB1F5875EA006E4722 /* TOSMBSessionUploadTask.m in Sources */,
-				8F2B6AD81F5875EA006E4722 /* TOSMBSessionDownloadTask.m in Sources */,
 				8FBBAA461E16DB0200CF697A /* EmergencyContentCell.swift in Sources */,
 				8FDE97D21F586F8B00712E3F /* EmergencyListTableViewController.swift in Sources */,
 				8FD766641E1609F2008E9D5C /* ViewController.swift in Sources */,
 				8FC8643F1F3429EA00C19486 /* OCPTableViewController.swift in Sources */,
 				8FC864401F3429EA00C19486 /* OCPContentCell.swift in Sources */,
-				8F2B6AD41F5875EA006E4722 /* TONetBIOSNameService.m in Sources */,
-				8F2B6ADA1F5875EA006E4722 /* TOSMBSessionTask.m in Sources */,
 				8F4AD06F1F3460E100668195 /* AlertViewController.swift in Sources */,
 				8FD766621E1609F2008E9D5C /* AppDelegate.swift in Sources */,
-				8F2B6AD71F5875EA006E4722 /* TOSMBSession.m in Sources */,
-				8F2B6AD61F5875EA006E4722 /* TOSMBConstants.m in Sources */,
-				8F2B6AD51F5875EA006E4722 /* TONetBIOSNameServiceEntry.m in Sources */,
 				8FC8643E1F3429EA00C19486 /* OCPListContentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -716,6 +548,7 @@
 		};
 		8FD7667C1E1609F2008E9D5C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53831AB9BD16443FD860A318 /* Pods-VTA Operations Manager's Assistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -730,7 +563,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nwalker2398.VTAOperationManagersAssistant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "VTA Operations Manager's Assistant/VTA Operations Manager's Assistant-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -738,6 +570,7 @@
 		};
 		8FD7667D1E1609F2008E9D5C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5726CD964DB78EAB3E67B11B /* Pods-VTA Operations Manager's Assistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -752,7 +585,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nwalker2398.VTAOperationManagersAssistant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "VTA Operations Manager's Assistant/VTA Operations Manager's Assistant-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;

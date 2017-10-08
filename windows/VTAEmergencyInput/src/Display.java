@@ -25,7 +25,7 @@ public class Display {
 		emergency_Input.textFont(font, 15);
 		emergency_Input.fill(0);
 		emergency_Input.textAlign(Emergency_Input.CENTER);
-		for(Button b: controller.staticButtons.values()) {
+		for(Button b: controller.buttons.values()) {
 			showButton(b);
 		}
 		emergency_Input.textAlign(Emergency_Input.LEFT);

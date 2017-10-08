@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -351,7 +354,11 @@ public class ObjectCreator extends JPanel implements ActionListener, KeyListener
 	    	String rest = s.substring(i + 1, s.length());
 	    	s = first + "N/A" + rest;
 	    }
-	    controller.writeLineToFile(s);
+	    List<Object> list = new ArrayList<Object>();
+	    for(String str: s.split(",")) {
+	        list.add(str);
+        }
+	    controller.writeLineToFile(list);
 	}
 	
 	

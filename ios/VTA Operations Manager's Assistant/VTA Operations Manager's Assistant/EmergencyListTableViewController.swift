@@ -8,18 +8,28 @@
 
 import UIKit
 import CoreData
+import GoogleAPIClientForREST
+import GoogleSignIn
 
-class EmergencyListTableViewController: UITableViewController, TOSMBSessionDownloadTaskDelegate{
+class EmergencyListTableViewController: UITableViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     // MARK: Properties
     var emergencies = [Emergency]()
     var filePath: String = ""
     
+    private let service = GTLRSheetsService()
+    private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
+
+    
     
     override func viewDidLoad() {
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().scopes = scopes
+        GIDSignIn.sharedInstance().signInSilently()
+        
         super.viewDidLoad()
         //fetchFilePath()
-        loadEmergenciesLocally()
-        loadEmergenciesSMB()
+        loadEmergencies()
     }
     
     func fetchFilePath() {
@@ -44,59 +54,27 @@ class EmergencyListTableViewController: UITableViewController, TOSMBSessionDownl
         }
     }
     
-    func loadEmergenciesSMB() {
-        
-        //
-        //
-        //        var prefix = String()
-        //        var fileName = String()
-        //        var data: NSMutableData = NSMutableData()
-        //
-        //        let session = URLSession(configuration: URLSessionConfiguration.default)
-        //        let task = session.dataTask(with: URL.init(string: prefix + fileName)!)
-        //        task.resume()
-        //
-        //        let session = URLSession(configuration: URLSessionConfiguration.default)
-        //        if let url = URL(string: "smb://192.168.1.130:TestFile.csv") {
-        //            (session.dataTask(with: url) { (data, response, error) in
-        //                if let error = error {
-        //                    print("Error: \(error)")
-        //                } else if let response = response,
-        //                    let data = data,
-        //                    let string = String(data: data, encoding: .utf8) {
-        //                    print("Response: \(response)")
-        //                    print("DATA:\n\(string)\nEND DATA\n")
-        //                }
-        //            }).resume()
-        //        }
-        
-        //        // variable to contain the read method returning value
-        //        var fileContent: String = ""
-        //
-        //        // init the SMBDriver
-        //        let smbDriver: SMBDriver = SMBDriver()
-        //
-        //        // set debug mode to true
-        //        smbDriver.debug = true
-        //
-        //        // set the connect data you would like to use while reading
-        //        let hostName: String = "192.168.1.130"
-        //        let userName: String = "test"
-        //        let loginPassword: String = "1234"
-        //        let fileNameAndPath: String = "/TestFile"
-        //        let sharedFolder: String = "MyShare"
-        //
-        //        do
-        //        {
-        //            // read a string from a text file on SMB share, if the file does not exists (and the user does not have read permissions) an error will be thrown
-        //            fileContent = try smbDriver.readTextFile(fromHost: hostName, withLogin: userName, withPassword: loginPassword, withFileName: fileNameAndPath, onShare: sharedFolder)
-        //            NSLog("Successfully read file, here is its content:\n\(fileContent)")
-        //        }
-        //        catch
-        //        {
-        //            NSLog("failed to read file content, errorCode: \((error as NSError).code), errorMessage: \((error as NSError).localizedDescription)");
-        //        }
-        
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+              withError error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            showAlert()
+            self.service.authorizer = nil
+        } else {
+            self.service.authorizer = user.authentication.fetcherAuthorizer()
+            loadEmergencies()
+        }
+    }
+    
+    func loadEmergencies() {
+        let spreadsheetId = "1qOHnxoBuYycIAfLJ5QBY9vEZvTd3rxub7BivOeriliw"
+        let range = "Class Data!A2:Q"
+        let query = GTLRSheetsQuery_SpreadsheetsValuesGet
+            .query(withSpreadsheetId: spreadsheetId, range:range)
+        service.executeQuery(query,
+                             delegate: self,
+                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:))
+        )
     }
     
     //Function for obtaining data without using SMB. For testing purposes only.
@@ -121,6 +99,34 @@ class EmergencyListTableViewController: UITableViewController, TOSMBSessionDownl
             if values.count == 19 {
                 emergencies.append(Emergency(words: values))
             }
+        }
+    }
+    
+    // Process the response and display output
+    func displayResultWithTicket(ticket: GTLRServiceTicket,
+                                 finishedWithObject result : GTLRSheets_ValueRange,
+                                 error : NSError?) {
+        
+        if let error = error {
+            print(error.localizedDescription)
+            showAlert()
+            return
+        }
+        
+        
+        let rows = result.values!
+        
+        if rows.isEmpty {
+            return
+        }
+        
+        var str: [String] = []
+        
+        for row in rows {
+            for s in row {
+                str.append(s as! String)
+            }
+            emergencies.append(Emergency.init(words: str))
         }
     }
     
