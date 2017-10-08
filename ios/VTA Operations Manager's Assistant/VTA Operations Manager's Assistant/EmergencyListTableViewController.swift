@@ -15,13 +15,18 @@ class EmergencyListTableViewController: UITableViewController, GIDSignInDelegate
     // MARK: Properties
     var emergencies = [Emergency]()
     var filePath: String = ""
+    private let service = GTLRSheetsService()
     
     
     override func viewDidLoad() {
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().scopes = scopes
+        GIDSignIn.sharedInstance().signInSilently()
+        
         super.viewDidLoad()
         //fetchFilePath()
-        loadEmergenciesLocally()
-        loadEmergenciesSMB()
+        loadEmergencies()
     }
     
     func fetchFilePath() {
@@ -46,8 +51,26 @@ class EmergencyListTableViewController: UITableViewController, GIDSignInDelegate
         }
     }
     
-    func loadEmergenciesSMB() {
-        
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+              withError error: Error!) {
+        if let error = error {
+            showAlert()
+            self.service.authorizer = nil
+        } else {
+            self.service.authorizer = user.authentication.fetcherAuthorizer()
+            loadEmergencies()
+        }
+    }
+    
+    func loadEmergencies() {
+        let spreadsheetId = "1qOHnxoBuYycIAfLJ5QBY9vEZvTd3rxub7BivOeriliw"
+        let range = "Class Data!A2:Q"
+        let query = GTLRSheetsQuery_SpreadsheetsValuesGet
+            .query(withSpreadsheetId: spreadsheetId, range:range)
+        service.executeQuery(query,
+                             delegate: self,
+                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:))
+        )
     }
     
     //Function for obtaining data without using SMB. For testing purposes only.
@@ -81,27 +104,25 @@ class EmergencyListTableViewController: UITableViewController, GIDSignInDelegate
                                  error : NSError?) {
         
         if let error = error {
-            showAlert(title: "Error", message: error.localizedDescription)
+            showAlert()
             return
         }
         
-        var majorsString = ""
+        
         let rows = result.values!
         
         if rows.isEmpty {
-            output.text = "No data found."
             return
         }
         
-        majorsString += "Name, Major:\n"
-        for row in rows {
-            let name = row[0]
-            let major = row[4]
-            
-            majorsString += "\(name), \(major)\n"
-        }
+        var str: [String] = []
         
-        output.text = majorsString
+        for row in rows {
+            for s in row {
+                str.append(s as! String)
+            }
+            emergencies.append(Emergency.init(str))
+        }
     }
     
     func showAlert() {
