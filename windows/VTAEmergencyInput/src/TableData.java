@@ -62,12 +62,11 @@ public class TableData {
         // Build a new authorized API client service.
         try {
             service = getSheetsService();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         spreadsheetId = id;
     }
-
 
     public String getDate() {
         String range = "Sheet1!A1:A1";
@@ -81,7 +80,6 @@ public class TableData {
                 System.out.println("No data found.");
             } else {
                 String date = values.get(0).get(0) + "";
-                System.out.println("Old date: " + date);
                 return date;
             }
         } catch(Exception e) {
@@ -92,6 +90,16 @@ public class TableData {
 
     public void appendLine(List l) {
         List<List<Object>> values = Arrays.asList(Arrays.asList(l.get(0), l.get(1), l.get(2), l.get(3), l.get(4), l.get(5), l.get(6), l.get(7), l.get(8), l.get(9), l.get(10), l.get(11), l.get(12), l.get(13), l.get(14), l.get(15), l.get(16)));
+        ValueRange body = new ValueRange().setValues(values);
+        try {
+            AppendValuesResponse result =
+                    service.spreadsheets().values().append(spreadsheetId, "Sheet1", body)
+                            .setValueInputOption("RAW").execute();
+        } catch(Exception e) {e.printStackTrace();}
+    }
+
+    public void writeMetadataLine(String encoded) {
+        List<List<Object>> values = Arrays.asList(Arrays.asList(encoded));
         ValueRange body = new ValueRange().setValues(values);
         try {
             AppendValuesResponse result =

@@ -319,7 +319,6 @@ public class ObjectCreator extends JPanel implements ActionListener, KeyListener
 		whatHappenedButton.setText("Edit Description");
 	}
 	
-	//writes the input values to the 'data.csv' file
 	//written in the format:
 	//descriptor,time,date,location,direction,vehicle1,vehicle2,block,badge1,badge2,name1,name2,respondingAgencies,mediaOnScene,respondingSupervisors,injuries, postAccidentTestRequired,whatHappened
 	public void writeEmergencyToFile() {
