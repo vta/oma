@@ -81,7 +81,6 @@ public class TableData {
                 System.out.println("No data found.");
             } else {
                 String date = values.get(0).get(0) + "";
-                System.out.println("Old date: " + date);
                 return date;
             }
         } catch(Exception e) {

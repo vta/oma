@@ -4,7 +4,12 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.List;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Date;
+import java.util.Calendar;
 
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -20,7 +25,7 @@ public class Controller {
 
 	private Display display;
 	private OCP_Input oCP_Input;
-	private String tableId;
+	private String tableId, firstName, lastName, email;
 	private TableData tableData;
 
 	public Controller(OCP_Input g) {
@@ -31,7 +36,12 @@ public class Controller {
 		backgroundImages = new HashMap<String, PImage>();
 		loadImages(oCP_Input);
 		putbuttons();
-		tableId = getMetaData();
+		ArrayList<String> s = getMetaData();
+		tableId = s.get(0);
+		System.out.println(tableId);
+		firstName = s.get(1);
+		lastName = s.get(2);
+		email = s.get(3);
 		tableData = new TableData(tableId);
 		checkFileOutdated();
 	}
@@ -104,7 +114,7 @@ public class Controller {
 		}
 	}
 
-	public String getMetaData() {
+	public ArrayList<String> getMetaData() {
 		String txtFile = "Assets/paths.txt";
 		Scanner sc = null;
 		try {
@@ -112,20 +122,26 @@ public class Controller {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		String s = "<none>";
-		if(sc.hasNext()) {
-			s = sc.nextLine();
+		ArrayList<String> strings = new ArrayList<String>();
+		while(sc.hasNext()) {
+			strings.add(sc.nextLine());
 		}
 		sc.close();
-		return s;
+		while(strings.size() < 4) {
+			strings.add("N/A");
+		}
+		return strings;
 	}
 
 	public void openPathWindow() {
-		new PathWindow(tableId, this);
+		new PathWindow(tableId, firstName, lastName, email,this);
 	}
 
-	public void changeMetaData(String newId) {
+	public void changeMetaData(String newId, String newFirstName, String newLastName, String newEmail) {
 		this.tableId = newId;
+		this.firstName = newFirstName;
+		this.lastName = newLastName;
+		this.email = newEmail;
 		String txtFile = "Assets/paths.txt";
 		PrintWriter printWriter;
 		try {
@@ -135,7 +151,10 @@ public class Controller {
 			e.printStackTrace();
 			return;
 		}
-		printWriter.print("New Id: " + newId);
+		printWriter.println(newId);
+		printWriter.println(newFirstName);
+		printWriter.println(newLastName);
+		printWriter.print(newEmail);
 		printWriter.close();
 	}
 	
@@ -151,9 +170,7 @@ public class Controller {
 		return tableData.getDate();
 	}
 
-	public void showPathErrorPopup() {
-		new PathWindow(this.tableId, this);
-	}
+	public void showPathErrorPopup() { openPathWindow();}
 
 	public boolean checkFileOutdated() {
 		Date now = new Date();

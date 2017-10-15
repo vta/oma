@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.List;
+import java.util.ArrayList;
 
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -23,7 +24,7 @@ public class Controller {
 
 	private Display display;
 	private Emergency_Input emergency_Input;
-	private String tableId;
+	private String tableId, firstName, lastName, email;
 	private TableData tableData;
 
 	public Controller(Emergency_Input g) {
@@ -34,7 +35,12 @@ public class Controller {
 		backgroundImages = new HashMap<String, PImage>();
 		loadImages(emergency_Input);
 		putbuttons();
-		tableId = getMetaData();
+		ArrayList<String> s = getMetaData();
+		tableId = s.get(0);
+		System.out.println(tableId);
+		firstName = s.get(1);
+		lastName = s.get(2);
+		email = s.get(3);
 		tableData = new TableData(tableId);
 		checkFileOutdated();
 	}
@@ -44,10 +50,10 @@ public class Controller {
 				new Button(Emergency_Input.SCREEN_WIDTH / 4,
 						Emergency_Input.SCREEN_HEIGHT / 2 - buttonImages.get("BlankButton-white").height / 2,
 						Button.ButtonName.CREATE, buttonImages.get("BlankButton-white")));
-		buttons.put("pathButton",
+		buttons.put("optionsButton",
 				new Button(Emergency_Input.SCREEN_WIDTH * 3 / 4 - buttonImages.get("BlankButton-white").width,
 						Emergency_Input.SCREEN_HEIGHT / 2 - buttonImages.get("BlankButton-white").height / 2,
-						Button.ButtonName.CHANGEPATH, buttonImages.get("BlankButton-white")));
+						Button.ButtonName.OPTIONS, buttonImages.get("BlankButton-white")));
 		buttons.put("showFileButton",
 				new Button(Emergency_Input.SCREEN_WIDTH / 2 - buttonImages.get("BlankButton-white").width / 2,
 						Emergency_Input.SCREEN_HEIGHT / 2 + buttonImages.get("BlankButton-white").height * 5 / 2,
@@ -107,7 +113,7 @@ public class Controller {
 		}
 	}
 
-	public String getMetaData() {
+	public ArrayList<String> getMetaData() {
 		String txtFile = "Assets/paths.txt";
 		Scanner sc = null;
 		try {
@@ -115,20 +121,26 @@ public class Controller {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		String s = "<none>";
-		if(sc.hasNext()) {
-			s = sc.nextLine();
+		ArrayList<String> strings = new ArrayList<String>();
+		while(sc.hasNext()) {
+			strings.add(sc.nextLine());
 		}
 		sc.close();
-		return s;
+		while(strings.size() < 4) {
+			strings.add("N/A");
+		}
+		return strings;
 	}
 
 	public void openPathWindow() {
-		new PathWindow(tableId, this);
+		new PathWindow(tableId, firstName, lastName, email,this);
 	}
 
-	public void changeMetaData(String newId) {
+	public void changeMetaData(String newId, String newFirstName, String newLastName, String newEmail) {
 		this.tableId = newId;
+		this.firstName = newFirstName;
+		this.lastName = newLastName;
+		this.email = newEmail;
 		String txtFile = "Assets/paths.txt";
 		PrintWriter printWriter;
 		try {
@@ -138,7 +150,10 @@ public class Controller {
 			e.printStackTrace();
 			return;
 		}
-		printWriter.print("New Id: " + newId);
+		printWriter.println(newId);
+		printWriter.println(newFirstName);
+		printWriter.println(newLastName);
+		printWriter.print(newEmail);
 		printWriter.close();
 	}
 	
@@ -154,9 +169,7 @@ public class Controller {
 		return tableData.getDate();
 	}
 	
-	public void showPathErrorPopup() {
-		new PathWindow(this.tableId, this);
-	}
+	public void showPathErrorPopup() { openPathWindow();}
 	
 	public boolean checkFileOutdated() {
 		Date now = new Date();
