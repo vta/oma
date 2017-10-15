@@ -1,6 +1,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -9,6 +13,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Base64;
 
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -24,8 +29,9 @@ public class Controller {
 
 	private Display display;
 	private Emergency_Input emergency_Input;
-	private String tableId, firstName, lastName, email;
+	private String tableId, metadataId, firstName, lastName, email;
 	private TableData tableData;
+	private TableData metadataTable;
 
 	public Controller(Emergency_Input g) {
 		emergency_Input = g;
@@ -41,7 +47,9 @@ public class Controller {
 		firstName = s.get(1);
 		lastName = s.get(2);
 		email = s.get(3);
+		metadataId = s.get(4);
 		tableData = new TableData(tableId);
+		metadataTable = new TableData(metadataId);
 		checkFileOutdated();
 	}
 
@@ -67,7 +75,7 @@ public class Controller {
 	public void writeLineToFile(List<Object> line) {
 		checkFileOutdated();
 		tableData.appendLine(line);
-
+		bit64Encode();
 		System.out.println("data has been written to the file");
 	}
 
@@ -126,21 +134,22 @@ public class Controller {
 			strings.add(sc.nextLine());
 		}
 		sc.close();
-		while(strings.size() < 4) {
+		while(strings.size() < 5) {
 			strings.add("N/A");
 		}
 		return strings;
 	}
 
 	public void openPathWindow() {
-		new PathWindow(tableId, firstName, lastName, email,this);
+		new PathWindow(tableId, firstName, lastName, email, metadataId, this);
 	}
 
-	public void changeMetaData(String newId, String newFirstName, String newLastName, String newEmail) {
-		this.tableId = newId;
+	public void changeMetaData(String newTableId, String newFirstName, String newLastName, String newEmail, String newMetadataId) {
+		this.tableId = newTableId;
 		this.firstName = newFirstName;
 		this.lastName = newLastName;
 		this.email = newEmail;
+		this.metadataId = newMetadataId;
 		String txtFile = "Assets/paths.txt";
 		PrintWriter printWriter;
 		try {
@@ -150,11 +159,37 @@ public class Controller {
 			e.printStackTrace();
 			return;
 		}
-		printWriter.println(newId);
+		printWriter.println(newTableId);
 		printWriter.println(newFirstName);
 		printWriter.println(newLastName);
-		printWriter.print(newEmail);
+		printWriter.println(newEmail);
+		printWriter.print(newMetadataId);
 		printWriter.close();
+	}
+
+	//Wrties a 64-bit-encoded string to the Metadata Google Sheet
+	//Formatted: <First Name>;<Last Name>;<Email Address>;<Mac Address>
+	public void bit64Encode() {
+		String macAddress = "null";
+		try {
+			InetAddress ip = InetAddress.getLocalHost();
+			NetworkInterface network = NetworkInterface.getByInetAddress(ip);
+			byte[] mac = network.getHardwareAddress();
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < mac.length; i++) {
+				sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
+			}
+			macAddress = sb.toString();
+
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		} catch (SocketException e){
+			e.printStackTrace();
+		}
+
+		String code = firstName + ";" + lastName + ";" + email + ";" + macAddress;
+		String encoded = Base64.getEncoder().encodeToString(code.getBytes());
+		metadataTable.writeMetadataLine(encoded);
 	}
 	
 	public void openFileLocation() {

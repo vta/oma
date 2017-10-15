@@ -21,23 +21,26 @@ public class PathWindow extends JPanel implements ActionListener, KeyListener{
 	public String newFirstName;
 	public String newLastName;
 	public String newEmail;
+	public String newMetadataId;
+
 	private JLabel tableIdLabel;
 	private JLabel firstNameLabel;
 	private JLabel lastNameLabel;
 	private JLabel emailLabel;
+	private JLabel metadataIdLabel;
 
 	private JTextArea tableIdArea;
 	private JTextArea firstNameArea;
 	private JTextArea lastNameArea;
 	private JTextArea emailArea;
-
+	private JTextArea metadataIdArea;
 
 	private JFrame textAreaFrame;
 	private Controller controller;
 	
-	public PathWindow(String oldId, String oldFirstName, String oldLastName, String oldEmail, Controller c){
+	public PathWindow(String oldTableId, String oldFirstName, String oldLastName, String oldEmail, String oldMetaDataId, Controller c){
 		this.controller = c;
-		this.newId = oldId;
+		this.newId = oldTableId;
 		this.newFirstName = oldFirstName;
 		this.newLastName = oldLastName;
 		this.newEmail = oldEmail;
@@ -50,8 +53,9 @@ public class PathWindow extends JPanel implements ActionListener, KeyListener{
 		firstNameLabel = new JLabel();
 		lastNameLabel = new JLabel();
 		emailLabel = new JLabel();
+		metadataIdLabel = new JLabel();
 		
-		tableIdArea = new JTextArea(oldId, 2, 30);
+		tableIdArea = new JTextArea(oldTableId, 2, 30);
 		tableIdArea.setBorder(BorderFactory.createLineBorder(Color.getHSBColor((float)0.617, (float)0.53, (float)0.94), 2));
 		firstNameArea = new JTextArea(oldFirstName, 1, 30);
 		firstNameArea.setBorder(BorderFactory.createLineBorder(Color.getHSBColor((float)0.617, (float)0.53, (float)0.94), 2));
@@ -59,13 +63,15 @@ public class PathWindow extends JPanel implements ActionListener, KeyListener{
 		lastNameArea.setBorder(BorderFactory.createLineBorder(Color.getHSBColor((float)0.617, (float)0.53, (float)0.94), 2));
 		emailArea = new JTextArea(oldEmail, 1, 30);
 		emailArea.setBorder(BorderFactory.createLineBorder(Color.getHSBColor((float)0.617, (float)0.53, (float)0.94), 2));
+		metadataIdArea = new JTextArea(oldMetaDataId, 1, 30);
+		metadataIdArea.setBorder(BorderFactory.createLineBorder(Color.getHSBColor((float)0.617, (float)0.53, (float)0.94), 2));
 
 
-		tableIdLabel.setText("Table ID: ");
+		tableIdLabel.setText("Data Entries Table ID: ");
 		firstNameLabel.setText("First Name: ");
 		lastNameLabel.setText("Last Name: ");
 		emailLabel.setText("Email: ");
-
+		metadataIdLabel.setText("Metadata Table ID: ");
 
 		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		panel.add(tableIdLabel);
@@ -76,6 +82,8 @@ public class PathWindow extends JPanel implements ActionListener, KeyListener{
 		panel.add(lastNameArea);
 		panel.add(emailLabel);
 		panel.add(emailArea);
+		panel.add(metadataIdLabel);
+		panel.add(metadataIdArea);
 
 		JButton enterButton = new JButton("Submit Changes");
         enterButton.setActionCommand("submitChanges");
@@ -105,7 +113,8 @@ public class PathWindow extends JPanel implements ActionListener, KeyListener{
 		this.newFirstName = firstNameArea.getText();
 		this.newLastName = lastNameArea.getText();
 		this.newEmail = emailArea.getText();
-		this.controller.changeMetaData(this.newId, this.newFirstName, this.newLastName, this.newEmail);
+		this.newMetadataId = metadataIdArea.getText();
+		this.controller.changeMetaData(this.newId, this.newFirstName, this.newLastName, this.newEmail, this.newMetadataId);
 		this.controller.getFileDate();
 		textAreaFrame.dispose();
 	}

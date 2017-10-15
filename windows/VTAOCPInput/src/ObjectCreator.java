@@ -487,7 +487,6 @@ public class ObjectCreator extends JPanel implements ActionListener{
         List<Object> list = new ArrayList<Object>();
         for(String str: s.split(",")) {
             list.add(str);
-            System.out.println("a");
         }
         controller.writeLineToFile(list);
 	}
