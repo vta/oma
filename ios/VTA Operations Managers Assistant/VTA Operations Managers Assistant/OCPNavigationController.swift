@@ -11,10 +11,15 @@ import UIKit
 class OCPNavigationController: UINavigationController {
 
     var ocp = OCP()
+    var ocps: [OCP] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(ocp.actual)
-        (self.childViewControllers[0] as! OCPTableViewController).ocp = ocp
+        for controller in self.childViewControllers {
+            if controller is OCPTableViewController {
+                (controller as! OCPTableViewController).ocp = ocp
+                (controller as! OCPTableViewController).ocps = ocps
+            }
+        }
         
         // Do any additional setup after loading the view.
     }

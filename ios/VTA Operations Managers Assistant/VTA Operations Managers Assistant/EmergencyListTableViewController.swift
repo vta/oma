@@ -7,126 +7,33 @@
 //
 
 import UIKit
-import CoreData
 import GoogleAPIClientForREST
 import GoogleSignIn
 
-class EmergencyListTableViewController: UITableViewController, GIDSignInDelegate, GIDSignInUIDelegate {
+class EmergencyListTableViewController: UITableViewController {
     // MARK: Properties
     var emergencies = [Emergency]()
     var filePath: String = ""
+    var rows: [[String]] = []
     
+    let signInButton = GIDSignInButton()
     private let service = GTLRSheetsService()
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
 
     
     
     override func viewDidLoad() {
-        GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().scopes = scopes
-        GIDSignIn.sharedInstance().signInSilently()
-        
-        super.viewDidLoad()
-        //fetchFilePath()
         loadEmergencies()
     }
     
-    func fetchFilePath() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DataPath")
-        
-        request.returnsObjectsAsFaults = false
-        
-        do {
-            let results = try context.fetch(request)
-            
-            if results.count >= 1 {
-                let result = results[0] as! NSManagedObject
-                let filePath = result.value(forKey: "string") as! String
-                print("path: " + filePath)
-            }
-        }
-        catch {
-            //ERROR
-        }
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
-              withError error: Error!) {
-        if let error = error {
-            print(error.localizedDescription)
-            showAlert()
-            self.service.authorizer = nil
-        } else {
-            self.service.authorizer = user.authentication.fetcherAuthorizer()
-            loadEmergencies()
-        }
-    }
-    
     func loadEmergencies() {
-        let spreadsheetId = "1qOHnxoBuYycIAfLJ5QBY9vEZvTd3rxub7BivOeriliw"
-        let range = "Class Data!A2:Q"
-        let query = GTLRSheetsQuery_SpreadsheetsValuesGet
-            .query(withSpreadsheetId: spreadsheetId, range:range)
-        service.executeQuery(query,
-                             delegate: self,
-                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:))
-        )
-    }
-    
-    //Function for obtaining data without using SMB. For testing purposes only.
-    func loadEmergenciesLocally() {
-        var text = ""
-        do{
-            if let url = URL.init(string: filePath) {
-                try text = String(contentsOf: url, encoding: String.Encoding.utf8)
-            } else {
-                text = "Low,Early,12:30 AM,January 22,5 First Street,Northbound,G7JDE2,H4WEQ5,2456,9384720,9382716,George Harris,Sarah Michaels,None,None,None,Broken Leg,No,Nothing major.\nMedium,Early,4:15 PM,January 21,800 Pennsylvania Ave,Northbound,G7JDE2,H4WEQ5,2456,9384720,9382716,George Harris,Sarah Michaels,None,None,None,Broken Leg,No,Nothing major.\nHigh,Early,7:45 AM,January 21,5 First Street,Northbound,G7JDE2,H4WEQ5,2456,9384720,9382716,George Harris,Sarah Michaels,None,None,None,Broken Leg,No,Nothing major."
-            }
-        } catch {
-            print("ERROR: File not found.")
-            showAlert()
-            text = "<Priority>, <Descriptor>, <Time>, <Date>, <Location>, <Direction>, <Vehicle #1>, <Vehicle #2>, <Block>, <Badge #1>, <Badge #2>, <Name #1>, <Name #2>, <Responding Agencies>, <Media on Scene>, <Responding Supervisors>, <Injuries>, <Post-Accident Test Required>, <description>"
-        }
-        
-        let strList = text.components(separatedBy: "\n").dropFirst()
-        
-        for s in strList {
-            let values = s.components(separatedBy: ",")
-            if values.count == 19 {
-                emergencies.append(Emergency(words: values))
-            }
-        }
-    }
-    
-    // Process the response and display output
-    func displayResultWithTicket(ticket: GTLRServiceTicket,
-                                 finishedWithObject result : GTLRSheets_ValueRange,
-                                 error : NSError?) {
-        
-        if let error = error {
-            print(error.localizedDescription)
-            showAlert()
-            return
-        }
-        
-        
-        let rows = result.values!
-        
-        if rows.isEmpty {
-            return
-        }
-        
-        var str: [String] = []
-        
         for row in rows {
+            var arr: [String] = []
             for s in row {
-                str.append(s as! String)
+                arr.append(s)
             }
-            emergencies.append(Emergency.init(words: str))
+            print(arr)
+            emergencies.append(Emergency.init(words: arr))
         }
     }
     
@@ -220,6 +127,7 @@ class EmergencyListTableViewController: UITableViewController, GIDSignInDelegate
         // Get the new view controller using segue.destinationViewController.
         if segue.destination is EmergencyNavigationController {
             (segue.destination as! EmergencyNavigationController).emergency = emergencies[tableView.indexPathForSelectedRow!.row]
+            (segue.destination as! EmergencyNavigationController).emergencies = emergencies
         }
         // Pass the selected object to the new view controller.
     }    

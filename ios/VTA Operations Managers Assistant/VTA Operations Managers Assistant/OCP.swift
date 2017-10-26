@@ -32,20 +32,20 @@ class OCP {
     
     // MARK: Initialization
     
-    init(inputs: [String]){
+    init(words: [String]){
         
-        run = inputs[0]
-        block = inputs[1]
-        coach = inputs[2]
-        op = inputs[3]
-        timeDue = inputs[4]
-        firstTime = inputs[5]
-        direction = inputs[6]
-        lastTime = inputs[7]
-        pullInTime = inputs[8]
-        actual = inputs[9]
-        ocp = inputs[10]
-        oe = inputs[11]
+        run = words[0]
+        block = words[1]
+        coach = words[2]
+        op = words[3]
+        timeDue = words[4]
+        firstTime = words[5]
+        direction = words[6]
+        lastTime = words[7]
+        pullInTime = words[8]
+        actual = words[9]
+        ocp = words[10]
+        oe = words[11]
         
         strings = [run, block, coach, op, timeDue, firstTime, direction, lastTime, pullInTime, actual, ocp, oe]
     }

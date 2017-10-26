@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F05E0E91FA0FE07006994AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F05E0E81FA0FE07006994AB /* Assets.xcassets */; };
+		8F05E0ED1FA1066F006994AB /* Quickstart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F05E0EC1FA1066F006994AB /* Quickstart.swift */; };
+		8F05E0EF1FA10989006994AB /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F05E0EE1FA10989006994AB /* MainMenuViewController.swift */; };
+		8F05E0F11FA10C92006994AB /* ListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F05E0F01FA10C92006994AB /* ListNavigationController.swift */; };
 		8FDE7A871F9D4C000078C677 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A721F9D4C000078C677 /* AlertViewController.swift */; };
-		8FDE7A881F9D4C000078C677 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 8FDE7A731F9D4C000078C677 /* Base.lproj */; };
 		8FDE7A891F9D4C000078C677 /* Emergency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A741F9D4C000078C677 /* Emergency.swift */; };
 		8FDE7A8A1F9D4C000078C677 /* EmergencyContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A751F9D4C000078C677 /* EmergencyContentCell.swift */; };
 		8FDE7A8B1F9D4C000078C677 /* EmergencyListContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A761F9D4C000078C677 /* EmergencyListContentCell.swift */; };
@@ -24,7 +27,6 @@
 		8FDE7A951F9D4C000078C677 /* OCPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A801F9D4C000078C677 /* OCPTableViewController.swift */; };
 		8FDE7A961F9D4C000078C677 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A811F9D4C000078C677 /* OptionsViewController.swift */; };
 		8FDE7A971F9D4C000078C677 /* VTA Operations Manager's Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A841F9D4C000078C677 /* VTA Operations Manager's Assistant.xcdatamodeld */; };
-		8FDE7A991F9D4C3F0078C677 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FDE7A981F9D4C3F0078C677 /* Assets.xcassets */; };
 		8FDE7A9B1F9D4C8E0078C677 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A9A1F9D4C8E0078C677 /* AppDelegate.swift */; };
 		8FDE7A9D1F9D4D2D0078C677 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FDE7A9C1F9D4D2D0078C677 /* Info.plist */; };
 		8FDE7A9F1F9D4EFF0078C677 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FDE7A9E1F9D4EFF0078C677 /* GoogleService-Info.plist */; };
@@ -35,8 +37,11 @@
 		042E8E1750E3FE672ED44F30 /* Pods_VTA_Operations_Managers_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VTA_Operations_Managers_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D5C11C0A18608330D7A9E3D /* Pods-VTA Operations Managers Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTA Operations Managers Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-VTA Operations Managers Assistant/Pods-VTA Operations Managers Assistant.release.xcconfig"; sourceTree = "<group>"; };
 		6FA318E785440B5E2413E5A5 /* Pods-VTA Operations Managers Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTA Operations Managers Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VTA Operations Managers Assistant/Pods-VTA Operations Managers Assistant.debug.xcconfig"; sourceTree = "<group>"; };
+		8F05E0E81FA0FE07006994AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F05E0EC1FA1066F006994AB /* Quickstart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quickstart.swift; sourceTree = "<group>"; };
+		8F05E0EE1FA10989006994AB /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuViewController.swift; path = ../MainMenuViewController.swift; sourceTree = "<group>"; };
+		8F05E0F01FA10C92006994AB /* ListNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNavigationController.swift; sourceTree = "<group>"; };
 		8FDE7A721F9D4C000078C677 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
-		8FDE7A731F9D4C000078C677 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		8FDE7A741F9D4C000078C677 /* Emergency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emergency.swift; sourceTree = "<group>"; };
 		8FDE7A751F9D4C000078C677 /* EmergencyContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyContentCell.swift; sourceTree = "<group>"; };
 		8FDE7A761F9D4C000078C677 /* EmergencyListContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyListContentCell.swift; sourceTree = "<group>"; };
@@ -53,7 +58,6 @@
 		8FDE7A811F9D4C000078C677 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		8FDE7A831F9D4C000078C677 /* VTA Operations Manager's Assistant.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "VTA Operations Manager's Assistant.entitlements"; sourceTree = "<group>"; };
 		8FDE7A851F9D4C000078C677 /* VTA Operations Manager's Assistant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "VTA Operations Manager's Assistant.xcdatamodel"; sourceTree = "<group>"; };
-		8FDE7A981F9D4C3F0078C677 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../VTA Operations Manager's Assistant/VTA Operations Manager's Assistant/Assets.xcassets"; sourceTree = "<group>"; };
 		8FDE7A9A1F9D4C8E0078C677 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FDE7A9C1F9D4D2D0078C677 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FDE7A9E1F9D4EFF0078C677 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -105,13 +109,15 @@
 				8FDE7A9C1F9D4D2D0078C677 /* Info.plist */,
 				8FDE7A9A1F9D4C8E0078C677 /* AppDelegate.swift */,
 				8FDE7A721F9D4C000078C677 /* AlertViewController.swift */,
-				8FDE7A981F9D4C3F0078C677 /* Assets.xcassets */,
-				8FDE7A731F9D4C000078C677 /* Base.lproj */,
+				8F05E0E81FA0FE07006994AB /* Assets.xcassets */,
 				8FDE7A741F9D4C000078C677 /* Emergency.swift */,
 				8FDE7A751F9D4C000078C677 /* EmergencyContentCell.swift */,
 				8FDE7A9E1F9D4EFF0078C677 /* GoogleService-Info.plist */,
 				8FDE7A761F9D4C000078C677 /* EmergencyListContentCell.swift */,
 				8FDE7A771F9D4C000078C677 /* EmergencyListTableViewController.swift */,
+				8F05E0F01FA10C92006994AB /* ListNavigationController.swift */,
+				8F05E0EE1FA10989006994AB /* MainMenuViewController.swift */,
+				8F05E0EC1FA1066F006994AB /* Quickstart.swift */,
 				8FDE7A781F9D4C000078C677 /* EmergencyNavigationController.swift */,
 				8FDE7A791F9D4C000078C677 /* EmergencyTableViewController.swift */,
 				8FDE7A7A1F9D4C000078C677 /* Main.storyboard */,
@@ -200,10 +206,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FDE7A9D1F9D4D2D0078C677 /* Info.plist in Resources */,
-				8FDE7A881F9D4C000078C677 /* Base.lproj in Resources */,
 				8FDE7A9F1F9D4EFF0078C677 /* GoogleService-Info.plist in Resources */,
-				8FDE7A991F9D4C3F0078C677 /* Assets.xcassets in Resources */,
 				8FDE7A8F1F9D4C000078C677 /* Main.storyboard in Resources */,
+				8F05E0E91FA0FE07006994AB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +282,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F05E0EF1FA10989006994AB /* MainMenuViewController.swift in Sources */,
 				8FDE7A8E1F9D4C000078C677 /* EmergencyTableViewController.swift in Sources */,
+				8F05E0F11FA10C92006994AB /* ListNavigationController.swift in Sources */,
 				8FDE7A871F9D4C000078C677 /* AlertViewController.swift in Sources */,
 				8FDE7A8D1F9D4C000078C677 /* EmergencyNavigationController.swift in Sources */,
 				8FDE7A961F9D4C000078C677 /* OptionsViewController.swift in Sources */,
@@ -286,6 +293,7 @@
 				8FDE7A891F9D4C000078C677 /* Emergency.swift in Sources */,
 				8FDE7A931F9D4C000078C677 /* OCPListTableViewController.swift in Sources */,
 				8FDE7A9B1F9D4C8E0078C677 /* AppDelegate.swift in Sources */,
+				8F05E0ED1FA1066F006994AB /* Quickstart.swift in Sources */,
 				8FDE7A921F9D4C000078C677 /* OCPListContentCell.swift in Sources */,
 				8FDE7A901F9D4C000078C677 /* OCP.swift in Sources */,
 				8FDE7A971F9D4C000078C677 /* VTA Operations Manager's Assistant.xcdatamodeld in Sources */,

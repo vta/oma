@@ -11,11 +11,15 @@ import UIKit
 class EmergencyNavigationController: UINavigationController {
     
     var emergency = Emergency()
+    var emergencies: [Emergency] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(emergency.date)
-        (self.childViewControllers[0] as! EmergencyTableViewController).emergency = emergency
-
+        for controller in self.childViewControllers {
+            if controller is EmergencyTableViewController {
+                (self.childViewControllers[0] as! EmergencyTableViewController).emergency = emergency
+                (self.childViewControllers[0] as! EmergencyTableViewController).emergencies = emergencies
+            }
+        }
         // Do any additional setup after loading the view.
     }
 

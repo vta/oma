@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VTA_Emergency_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainMenuViewController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -73,15 +73,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vzc-sW-i2w"/>
+                    <connections>
+                        <outlet property="emergencyButton" destination="SXb-cL-ES3" id="WfC-lV-D0a"/>
+                        <outlet property="ocpButton" destination="fuT-mL-IK5" id="sg3-jG-3s8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--List Navigation Controller-->
         <scene sceneID="MHX-79-4da">
             <objects>
-                <navigationController id="f5n-RG-z9t" sceneMemberID="viewController">
+                <navigationController id="f5n-RG-z9t" customClass="ListNavigationController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vms-FX-JXZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -98,13 +102,13 @@
         <!--Recent Emergencies-->
         <scene sceneID="HDM-fj-jAJ">
             <objects>
-                <tableViewController id="Ds7-vt-vwW" customClass="EmergencyListTableViewController" customModule="VTA_Emergency_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ds7-vt-vwW" customClass="EmergencyListTableViewController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" id="zJ1-mT-J7E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmergencyListContentCell" rowHeight="62" id="hoO-Hx-INL" customClass="EmergencyListContentCell" customModule="VTA_Emergency_Viewer" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmergencyListContentCell" rowHeight="62" id="hoO-Hx-INL" customClass="EmergencyListContentCell" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hoO-Hx-INL" id="4tb-HR-O3s">
@@ -186,7 +190,7 @@
         <!--Options-->
         <scene sceneID="mIB-5D-SbE">
             <objects>
-                <viewController id="GJF-gu-OZW" customClass="OptionsViewController" customModule="VTA_Emergency_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GJF-gu-OZW" customClass="OptionsViewController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s2g-wm-Q5C"/>
                         <viewControllerLayoutGuide type="bottom" id="qSE-r1-kN6"/>
@@ -196,7 +200,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify me only for Emergencies of this priority or higher:" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zld-Wt-w2S">
-                                <rect key="frame" x="7" y="120" width="362.5" height="17"/>
+                                <rect key="frame" x="6.5" y="120" width="362.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -211,7 +215,7 @@
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configure path to data directory:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZ9-oS-eTw">
-                                <rect key="frame" x="82.5" y="236" width="211.5" height="17"/>
+                                <rect key="frame" x="82" y="236" width="211.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -273,13 +277,13 @@
         <!--Emergency Information-->
         <scene sceneID="e1O-Kp-pRo">
             <objects>
-                <tableViewController id="Qjw-Kl-acN" customClass="EmergencyTableViewController" customModule="VTA_Emergency_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Qjw-Kl-acN" customClass="EmergencyTableViewController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iiI-W8-7gS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmergencyContentCell" id="Ncq-Y8-ZVJ" customClass="EmergencyContentCell" customModule="VTA_Emergency_Viewer" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmergencyContentCell" id="Ncq-Y8-ZVJ" customClass="EmergencyContentCell" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" tableViewCell="Ncq-Y8-ZVJ" id="zaT-6A-nGp">
@@ -338,7 +342,7 @@
         <!--Emergency Navigation Controller-->
         <scene sceneID="MPa-sZ-MHy">
             <objects>
-                <navigationController id="DEl-rm-qyI" customClass="EmergencyNavigationController" customModule="VTA_Emergency_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="DEl-rm-qyI" customClass="EmergencyNavigationController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cre-mN-6UY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -351,10 +355,10 @@
             </objects>
             <point key="canvasLocation" x="2441" y="-574"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--List Navigation Controller-->
         <scene sceneID="Ypr-1G-GG0">
             <objects>
-                <navigationController id="bw9-uk-h9K" sceneMemberID="viewController">
+                <navigationController id="bw9-uk-h9K" customClass="ListNavigationController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0d5-dS-FE4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -370,13 +374,13 @@
         <!--Recent Outlates, Cancels, or Pulls-->
         <scene sceneID="xFP-Jx-kWj">
             <objects>
-                <tableViewController id="99M-Qo-CvJ" customClass="OCPListTableViewController" customModule="VTA_Emergency_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="99M-Qo-CvJ" customClass="OCPListTableViewController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" id="h63-Ib-moZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OCPListContentCell" rowHeight="62" id="N8n-Vx-tEo" customClass="OCPListContentCell" customModule="VTA_Emergency_Viewer" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OCPListContentCell" rowHeight="62" id="N8n-Vx-tEo" customClass="OCPListContentCell" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N8n-Vx-tEo" id="me7-IR-aYS">
@@ -439,13 +443,13 @@
         <!--O/C/P Information-->
         <scene sceneID="7Aw-Cm-iey">
             <objects>
-                <tableViewController id="K6H-HH-6Ip" customClass="OCPTableViewController" customModule="VTA_Emergency_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="K6H-HH-6Ip" customClass="OCPTableViewController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="o4H-32-Q3z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OCPContentCell" id="Rgd-Bk-XZn" customClass="OCPContentCell" customModule="VTA_Emergency_Viewer" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OCPContentCell" id="Rgd-Bk-XZn" customClass="OCPContentCell" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" tableViewCell="Rgd-Bk-XZn" id="Qat-Zn-UUd">
@@ -506,7 +510,7 @@
         <!--OCP Navigation Controller-->
         <scene sceneID="DCj-ho-xO3">
             <objects>
-                <navigationController id="68c-h9-FEq" userLabel="OCP Navigation Controller" customClass="OCPNavigationController" customModule="VTA_Emergency_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="68c-h9-FEq" userLabel="OCP Navigation Controller" customClass="OCPNavigationController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rZ2-ov-lw3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -521,8 +525,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="fZG-BH-mPu"/>
         <segue reference="0Xc-kc-nef"/>
-        <segue reference="Bw8-90-0kf"/>
-        <segue reference="cf6-Cq-pDL"/>
+        <segue reference="sCt-TV-4BO"/>
     </inferredMetricsTieBreakers>
 </document>

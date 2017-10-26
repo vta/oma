@@ -13,6 +13,7 @@ class OCPTableViewController: UITableViewController {
     var ocp = OCP()
     var content: [String] = []
     var labels = OCP.labels
+    var ocps: [OCP] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,13 +90,17 @@ class OCPTableViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
+        if segue.destination is OCPListTableViewController {
+            (segue.destination as! OCPListTableViewController).ocps = ocps
+            (segue.destination as! OCPListTableViewController).tableView.reloadData()
+        }
      }
-     */
+    
 }
