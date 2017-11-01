@@ -87,7 +87,7 @@
             <objects>
                 <navigationController id="f5n-RG-z9t" customClass="ListNavigationController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vms-FX-JXZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Vms-FX-JXZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -175,7 +175,7 @@
         <scene sceneID="peo-kV-NeD">
             <objects>
                 <navigationController id="z69-k8-1h8" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QBk-FQ-4Y5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QBk-FQ-4Y5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -214,8 +214,8 @@
                                     <segment title="Low"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configure path to data directory:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZ9-oS-eTw">
-                                <rect key="frame" x="82" y="236" width="211.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configure Emergency Table ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZ9-oS-eTw">
+                                <rect key="frame" x="90" y="236" width="196" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -234,15 +234,42 @@
                                     <action selector="EmergencySubmit:" destination="GJF-gu-OZW" eventType="touchUpInside" id="GMd-0t-XQX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configure Outlate/Cancel/Pull Table ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qd-ln-Wzp">
+                                <rect key="frame" x="64" y="345" width="248" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="smb://ex/VTA_MA_Data" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nYZ-90-h5l" userLabel="EmergencyPath">
+                                <rect key="frame" x="101" y="373" width="172" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85x-wO-cBa" userLabel="Emergency Path Change Button">
+                                <rect key="frame" x="164" y="403" width="46" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="EmergencySubmit:" destination="GJF-gu-OZW" eventType="touchUpInside" id="8Qf-5W-QhO"/>
+                                    <action selector="ocpSubmit:" destination="GJF-gu-OZW" eventType="touchUpInside" id="zGJ-gU-3KT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="85x-wO-cBa" firstAttribute="top" secondItem="nYZ-90-h5l" secondAttribute="bottom" id="4Zs-Ms-5VX"/>
                             <constraint firstItem="NZ9-oS-eTw" firstAttribute="centerX" secondItem="nfq-Pz-vcc" secondAttribute="centerX" id="6ZK-hH-UD6"/>
+                            <constraint firstItem="nYZ-90-h5l" firstAttribute="top" secondItem="2qd-ln-Wzp" secondAttribute="bottom" constant="11" id="A6n-pT-nuc"/>
+                            <constraint firstItem="2qd-ln-Wzp" firstAttribute="top" secondItem="E84-dU-NW0" secondAttribute="bottom" constant="22" id="IV2-wo-Vg3"/>
                             <constraint firstItem="E84-dU-NW0" firstAttribute="centerX" secondItem="nfq-Pz-vcc" secondAttribute="centerX" id="JEL-wX-Buf"/>
                             <constraint firstItem="NZ9-oS-eTw" firstAttribute="top" secondItem="FD4-je-Pmd" secondAttribute="bottom" constant="60" id="OT1-iP-s2I"/>
                             <constraint firstItem="at5-xI-16K" firstAttribute="top" secondItem="NZ9-oS-eTw" secondAttribute="bottom" constant="11" id="RYg-66-b4R"/>
                             <constraint firstItem="Zld-Wt-w2S" firstAttribute="centerX" secondItem="nfq-Pz-vcc" secondAttribute="centerX" id="UNi-jF-tdc"/>
+                            <constraint firstItem="nYZ-90-h5l" firstAttribute="centerX" secondItem="nfq-Pz-vcc" secondAttribute="centerX" id="bRj-ib-lgB"/>
                             <constraint firstItem="FD4-je-Pmd" firstAttribute="centerX" secondItem="nfq-Pz-vcc" secondAttribute="centerX" id="bf9-KC-g6m"/>
+                            <constraint firstItem="85x-wO-cBa" firstAttribute="centerX" secondItem="nfq-Pz-vcc" secondAttribute="centerX" id="eKj-OV-Z8b"/>
+                            <constraint firstItem="2qd-ln-Wzp" firstAttribute="centerX" secondItem="nfq-Pz-vcc" secondAttribute="centerX" id="fFt-W3-gqT"/>
                             <constraint firstItem="Zld-Wt-w2S" firstAttribute="top" secondItem="nfq-Pz-vcc" secondAttribute="top" constant="120" id="m0o-Pe-gAR"/>
                             <constraint firstItem="at5-xI-16K" firstAttribute="centerX" secondItem="nfq-Pz-vcc" secondAttribute="centerX" id="ogx-o2-EAg"/>
                             <constraint firstItem="E84-dU-NW0" firstAttribute="top" secondItem="at5-xI-16K" secondAttribute="bottom" id="pJ3-ix-t1X"/>
@@ -257,7 +284,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dataPathField" destination="at5-xI-16K" id="RpC-xM-1R9"/>
+                        <outlet property="emergencyField" destination="at5-xI-16K" id="Msw-9Q-Wnz"/>
+                        <outlet property="ocpField" destination="nYZ-90-h5l" id="RWC-8P-tot"/>
                         <outlet property="priorityMinimum" destination="FD4-je-Pmd" id="5Gr-qr-mV4"/>
                     </connections>
                 </viewController>
@@ -343,7 +371,7 @@
         <scene sceneID="MPa-sZ-MHy">
             <objects>
                 <navigationController id="DEl-rm-qyI" customClass="EmergencyNavigationController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cre-mN-6UY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Cre-mN-6UY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -359,7 +387,7 @@
         <scene sceneID="Ypr-1G-GG0">
             <objects>
                 <navigationController id="bw9-uk-h9K" customClass="ListNavigationController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0d5-dS-FE4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="0d5-dS-FE4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -511,7 +539,7 @@
         <scene sceneID="DCj-ho-xO3">
             <objects>
                 <navigationController id="68c-h9-FEq" userLabel="OCP Navigation Controller" customClass="OCPNavigationController" customModule="VTA_Operations_Managers_Assistant" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rZ2-ov-lw3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rZ2-ov-lw3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

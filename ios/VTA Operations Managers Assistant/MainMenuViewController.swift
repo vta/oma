@@ -20,11 +20,12 @@ class MainMenuViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
     var rows: [Any] = []
     var listNavigationController: ListNavigationController = ListNavigationController.init()
     
-    var emergencySpreadsheetId = "1qOHnxoBuYycIAfLJ5QBY9vEZvTd3rxub7BivOeriliw"
-    var ocpSpreadsheetId = "1xjEZ_pImoxOHSPsLUrVEUs8tUNeBxmq9TfE6CjE0tR8"
+    var emergencySpreadsheetId = ""
+    var ocpSpreadsheetId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchMetatData()
         
         // Configure Google Sign-in.
         GIDSignIn.sharedInstance().delegate = self
@@ -52,33 +53,6 @@ class MainMenuViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        var range = ""
-        var sheetId = ""
-        
-        if (sender as! UIButton) == self.emergencyButton {
-            range = "Sheet1!A3:Q"
-            sheetId = emergencySpreadsheetId
-        }
-        
-        if (sender as! UIButton) == self.ocpButton {
-            range = "Sheet1!A3:L"
-            sheetId = ocpSpreadsheetId
-        }
-        
-        if segue.destination is ListNavigationController {
-            self.listNavigationController = segue.destination as! ListNavigationController
-            listRows(spreadsheetId: sheetId, range: range)
-        }
     }
     
     func listRows(spreadsheetId: String, range: String){
@@ -121,11 +95,11 @@ class MainMenuViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         present(alert, animated: true, completion: nil)
     }
     
-    func fetchFilePath(name: String) {
+    func fetchMetatData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        var request = NSFetchRequest<NSFetchRequestResult>(entityName: "EmergencyPath")
         
         request.returnsObjectsAsFaults = false
         
@@ -134,14 +108,54 @@ class MainMenuViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
             
             if results.count >= 1 {
                 let result = results[0] as! NSManagedObject
-                let filePath = result.value(forKey: "string") as! String
+                emergencySpreadsheetId = result.value(forKey: "string") as! String
                 
             }
         }
         catch {
             //ERROR
         }
+        
+        request = NSFetchRequest<NSFetchRequestResult>(entityName: "OCPPath")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try context.fetch(request)
+            
+            if results.count >= 1 {
+                let result = results[0] as! NSManagedObject
+                ocpSpreadsheetId = result.value(forKey: "string") as! String
+            }
+        }
+        catch {
+            //ERROR
+        }
     }
-
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        var range = ""
+        var sheetId = ""
+        
+        if (sender as! UIButton) == self.emergencyButton {
+            range = "Sheet1!A3:Q"
+            sheetId = emergencySpreadsheetId
+        }
+        
+        if (sender as! UIButton) == self.ocpButton {
+            range = "Sheet1!A3:L"
+            sheetId = ocpSpreadsheetId
+        }
+        
+        if segue.destination is ListNavigationController {
+            self.listNavigationController = segue.destination as! ListNavigationController
+            listRows(spreadsheetId: sheetId, range: range)
+        }
+    }
 
 }

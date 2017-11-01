@@ -13,8 +13,8 @@ class OptionsViewController: UIViewController {
 
     //MARK: Outlets
     @IBOutlet weak var priorityMinimum: UISegmentedControl!
-    @IBOutlet weak var dataPathField: UITextField!
- 
+    @IBOutlet weak var emergencyField: UITextField!
+    @IBOutlet weak var ocpField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class OptionsViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DataPath")
+        var request = NSFetchRequest<NSFetchRequestResult>(entityName: "EmergencyPath")
         request.returnsObjectsAsFaults = false
         
         do {
@@ -40,8 +40,22 @@ class OptionsViewController: UIViewController {
 
             if results.count >= 1 {
                 let result = results[0] as! NSManagedObject
-                dataPathField.text = result.value(forKey: "string") as? String
-                print("set to " + (result.value(forKey: "string") as! String))
+                emergencyField.text = result.value(forKey: "string") as? String
+            }
+        }
+        catch {
+            //ERROR
+        }
+        
+        request = NSFetchRequest<NSFetchRequestResult>(entityName: "OCPPath")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try context.fetch(request)
+            
+            if results.count >= 1 {
+                let result = results[0] as! NSManagedObject
+                ocpField.text = result.value(forKey: "string") as? String
             }
         }
         catch {
@@ -55,7 +69,7 @@ class OptionsViewController: UIViewController {
         let context = appDelegate.persistentContainer.viewContext
         
         //Fetch the Emergency core data and modify its value.
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DataPath")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "EmergencyPath")
         
         request.returnsObjectsAsFaults = false
         
@@ -64,11 +78,39 @@ class OptionsViewController: UIViewController {
             
             if results.count >= 1 {
                 let result = results[0] as! NSManagedObject
-                result.setValue(dataPathField.text, forKey: "string")
+                result.setValue(emergencyField.text, forKey: "string")
             } else {
                 //No object yet exists in the core data; create one.
-                let newPath = NSEntityDescription.insertNewObject(forEntityName: "DataPath", into: context)
-                newPath.setValue(dataPathField.text!, forKey: "string")
+                let newPath = NSEntityDescription.insertNewObject(forEntityName: "EmergencyPath", into: context)
+                newPath.setValue(emergencyField.text!, forKey: "string")
+            }
+            
+            try context.save()
+        }
+        catch {
+            //ERROR
+        }
+    }
+    
+    @IBAction func ocpSubmit(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        //Fetch the Emergency core data and modify its value.
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "OCPPath")
+        
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try context.fetch(request)
+            
+            if results.count >= 1 {
+                let result = results[0] as! NSManagedObject
+                result.setValue(ocpField.text, forKey: "string")
+            } else {
+                //No object yet exists in the core data; create one.
+                let newPath = NSEntityDescription.insertNewObject(forEntityName: "OCPPath", into: context)
+                newPath.setValue(ocpField.text!, forKey: "string")
             }
             
             try context.save()
