@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8F05E0E91FA0FE07006994AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F05E0E81FA0FE07006994AB /* Assets.xcassets */; };
+		8F05E0ED1FA1066F006994AB /* Quickstart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F05E0EC1FA1066F006994AB /* Quickstart.swift */; };
+		8F05E0EF1FA10989006994AB /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F05E0EE1FA10989006994AB /* MainMenuViewController.swift */; };
+		8F05E0F11FA10C92006994AB /* ListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F05E0F01FA10C92006994AB /* ListNavigationController.swift */; };
+		8FDE7A871F9D4C000078C677 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A721F9D4C000078C677 /* AlertViewController.swift */; };
+		8FDE7A891F9D4C000078C677 /* Emergency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A741F9D4C000078C677 /* Emergency.swift */; };
+		8FDE7A8A1F9D4C000078C677 /* EmergencyContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A751F9D4C000078C677 /* EmergencyContentCell.swift */; };
+		8FDE7A8B1F9D4C000078C677 /* EmergencyListContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A761F9D4C000078C677 /* EmergencyListContentCell.swift */; };
+		8FDE7A8C1F9D4C000078C677 /* EmergencyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A771F9D4C000078C677 /* EmergencyListTableViewController.swift */; };
+		8FDE7A8D1F9D4C000078C677 /* EmergencyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A781F9D4C000078C677 /* EmergencyNavigationController.swift */; };
+		8FDE7A8E1F9D4C000078C677 /* EmergencyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A791F9D4C000078C677 /* EmergencyTableViewController.swift */; };
+		8FDE7A8F1F9D4C000078C677 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FDE7A7A1F9D4C000078C677 /* Main.storyboard */; };
+		8FDE7A901F9D4C000078C677 /* OCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A7B1F9D4C000078C677 /* OCP.swift */; };
+		8FDE7A911F9D4C000078C677 /* OCPContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A7C1F9D4C000078C677 /* OCPContentCell.swift */; };
+		8FDE7A921F9D4C000078C677 /* OCPListContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A7D1F9D4C000078C677 /* OCPListContentCell.swift */; };
+		8FDE7A931F9D4C000078C677 /* OCPListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A7E1F9D4C000078C677 /* OCPListTableViewController.swift */; };
+		8FDE7A941F9D4C000078C677 /* OCPNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A7F1F9D4C000078C677 /* OCPNavigationController.swift */; };
+		8FDE7A951F9D4C000078C677 /* OCPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A801F9D4C000078C677 /* OCPTableViewController.swift */; };
+		8FDE7A961F9D4C000078C677 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A811F9D4C000078C677 /* OptionsViewController.swift */; };
+		8FDE7A971F9D4C000078C677 /* VTA Operations Manager's Assistant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A841F9D4C000078C677 /* VTA Operations Manager's Assistant.xcdatamodeld */; };
+		8FDE7A9B1F9D4C8E0078C677 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A9A1F9D4C8E0078C677 /* AppDelegate.swift */; };
+		8FDE7A9D1F9D4D2D0078C677 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FDE7A9C1F9D4D2D0078C677 /* Info.plist */; };
+		8FDE7A9F1F9D4EFF0078C677 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FDE7A9E1F9D4EFF0078C677 /* GoogleService-Info.plist */; };
+		91A5E3818B0E6B8CEC0E8FF0 /* Pods_VTA_Operations_Managers_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042E8E1750E3FE672ED44F30 /* Pods_VTA_Operations_Managers_Assistant.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		042E8E1750E3FE672ED44F30 /* Pods_VTA_Operations_Managers_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VTA_Operations_Managers_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D5C11C0A18608330D7A9E3D /* Pods-VTA Operations Managers Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTA Operations Managers Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-VTA Operations Managers Assistant/Pods-VTA Operations Managers Assistant.release.xcconfig"; sourceTree = "<group>"; };
+		6FA318E785440B5E2413E5A5 /* Pods-VTA Operations Managers Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTA Operations Managers Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VTA Operations Managers Assistant/Pods-VTA Operations Managers Assistant.debug.xcconfig"; sourceTree = "<group>"; };
+		8F05E0E81FA0FE07006994AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F05E0EC1FA1066F006994AB /* Quickstart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quickstart.swift; sourceTree = "<group>"; };
+		8F05E0EE1FA10989006994AB /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuViewController.swift; path = ../MainMenuViewController.swift; sourceTree = "<group>"; };
+		8F05E0F01FA10C92006994AB /* ListNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNavigationController.swift; sourceTree = "<group>"; };
+		8FDE7A721F9D4C000078C677 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		8FDE7A741F9D4C000078C677 /* Emergency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emergency.swift; sourceTree = "<group>"; };
+		8FDE7A751F9D4C000078C677 /* EmergencyContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyContentCell.swift; sourceTree = "<group>"; };
+		8FDE7A761F9D4C000078C677 /* EmergencyListContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyListContentCell.swift; sourceTree = "<group>"; };
+		8FDE7A771F9D4C000078C677 /* EmergencyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyListTableViewController.swift; sourceTree = "<group>"; };
+		8FDE7A781F9D4C000078C677 /* EmergencyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyNavigationController.swift; sourceTree = "<group>"; };
+		8FDE7A791F9D4C000078C677 /* EmergencyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyTableViewController.swift; sourceTree = "<group>"; };
+		8FDE7A7A1F9D4C000078C677 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8FDE7A7B1F9D4C000078C677 /* OCP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCP.swift; sourceTree = "<group>"; };
+		8FDE7A7C1F9D4C000078C677 /* OCPContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCPContentCell.swift; sourceTree = "<group>"; };
+		8FDE7A7D1F9D4C000078C677 /* OCPListContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCPListContentCell.swift; sourceTree = "<group>"; };
+		8FDE7A7E1F9D4C000078C677 /* OCPListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCPListTableViewController.swift; sourceTree = "<group>"; };
+		8FDE7A7F1F9D4C000078C677 /* OCPNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCPNavigationController.swift; sourceTree = "<group>"; };
+		8FDE7A801F9D4C000078C677 /* OCPTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCPTableViewController.swift; sourceTree = "<group>"; };
+		8FDE7A811F9D4C000078C677 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		8FDE7A831F9D4C000078C677 /* VTA Operations Manager's Assistant.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "VTA Operations Manager's Assistant.entitlements"; sourceTree = "<group>"; };
+		8FDE7A851F9D4C000078C677 /* VTA Operations Manager's Assistant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "VTA Operations Manager's Assistant.xcdatamodel"; sourceTree = "<group>"; };
+		8FDE7A9A1F9D4C8E0078C677 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8FDE7A9C1F9D4D2D0078C677 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FDE7A9E1F9D4EFF0078C677 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8FF377A81F9D48A600D4C50D /* VTA Operations Managers Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VTA Operations Managers Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8FF377A51F9D48A600D4C50D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91A5E3818B0E6B8CEC0E8FF0 /* Pods_VTA_Operations_Managers_Assistant.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		35C44E3123B582C63EEBCB9B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FA318E785440B5E2413E5A5 /* Pods-VTA Operations Managers Assistant.debug.xcconfig */,
+				1D5C11C0A18608330D7A9E3D /* Pods-VTA Operations Managers Assistant.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8FF3779F1F9D48A600D4C50D = {
+			isa = PBXGroup;
+			children = (
+				8FF377AA1F9D48A600D4C50D /* VTA Operations Managers Assistant */,
+				8FF377A91F9D48A600D4C50D /* Products */,
+				35C44E3123B582C63EEBCB9B /* Pods */,
+				D3A709F3788910D6869C3B70 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8FF377A91F9D48A600D4C50D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8FF377A81F9D48A600D4C50D /* VTA Operations Managers Assistant.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8FF377AA1F9D48A600D4C50D /* VTA Operations Managers Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				8FDE7A9C1F9D4D2D0078C677 /* Info.plist */,
+				8FDE7A9A1F9D4C8E0078C677 /* AppDelegate.swift */,
+				8FDE7A721F9D4C000078C677 /* AlertViewController.swift */,
+				8F05E0E81FA0FE07006994AB /* Assets.xcassets */,
+				8FDE7A741F9D4C000078C677 /* Emergency.swift */,
+				8FDE7A751F9D4C000078C677 /* EmergencyContentCell.swift */,
+				8FDE7A9E1F9D4EFF0078C677 /* GoogleService-Info.plist */,
+				8FDE7A761F9D4C000078C677 /* EmergencyListContentCell.swift */,
+				8FDE7A771F9D4C000078C677 /* EmergencyListTableViewController.swift */,
+				8F05E0F01FA10C92006994AB /* ListNavigationController.swift */,
+				8F05E0EE1FA10989006994AB /* MainMenuViewController.swift */,
+				8F05E0EC1FA1066F006994AB /* Quickstart.swift */,
+				8FDE7A781F9D4C000078C677 /* EmergencyNavigationController.swift */,
+				8FDE7A791F9D4C000078C677 /* EmergencyTableViewController.swift */,
+				8FDE7A7A1F9D4C000078C677 /* Main.storyboard */,
+				8FDE7A7B1F9D4C000078C677 /* OCP.swift */,
+				8FDE7A7C1F9D4C000078C677 /* OCPContentCell.swift */,
+				8FDE7A7D1F9D4C000078C677 /* OCPListContentCell.swift */,
+				8FDE7A7E1F9D4C000078C677 /* OCPListTableViewController.swift */,
+				8FDE7A7F1F9D4C000078C677 /* OCPNavigationController.swift */,
+				8FDE7A801F9D4C000078C677 /* OCPTableViewController.swift */,
+				8FDE7A811F9D4C000078C677 /* OptionsViewController.swift */,
+				8FDE7A831F9D4C000078C677 /* VTA Operations Manager's Assistant.entitlements */,
+				8FDE7A841F9D4C000078C677 /* VTA Operations Manager's Assistant.xcdatamodeld */,
+			);
+			path = "VTA Operations Managers Assistant";
+			sourceTree = "<group>";
+		};
+		D3A709F3788910D6869C3B70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				042E8E1750E3FE672ED44F30 /* Pods_VTA_Operations_Managers_Assistant.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8FF377A71F9D48A600D4C50D /* VTA Operations Managers Assistant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FF377BD1F9D48A600D4C50D /* Build configuration list for PBXNativeTarget "VTA Operations Managers Assistant" */;
+			buildPhases = (
+				CD76021F81A18246DD5BFB97 /* [CP] Check Pods Manifest.lock */,
+				8FF377A41F9D48A600D4C50D /* Sources */,
+				8FF377A51F9D48A600D4C50D /* Frameworks */,
+				8FF377A61F9D48A600D4C50D /* Resources */,
+				2307EAEC9941CC95ABEA7247 /* [CP] Embed Pods Frameworks */,
+				2B5A7B283A3BCD3D579D8317 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VTA Operations Managers Assistant";
+			productName = "VTA Operations Managers Assistant";
+			productReference = 8FF377A81F9D48A600D4C50D /* VTA Operations Managers Assistant.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8FF377A01F9D48A600D4C50D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Nathan Walker";
+				TargetAttributes = {
+					8FF377A71F9D48A600D4C50D = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = D5J4ZY4W89;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8FF377A31F9D48A600D4C50D /* Build configuration list for PBXProject "VTA Operations Managers Assistant" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8FF3779F1F9D48A600D4C50D;
+			productRefGroup = 8FF377A91F9D48A600D4C50D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8FF377A71F9D48A600D4C50D /* VTA Operations Managers Assistant */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8FF377A61F9D48A600D4C50D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FDE7A9D1F9D4D2D0078C677 /* Info.plist in Resources */,
+				8FDE7A9F1F9D4EFF0078C677 /* GoogleService-Info.plist in Resources */,
+				8FDE7A8F1F9D4C000078C677 /* Main.storyboard in Resources */,
+				8F05E0E91FA0FE07006994AB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2307EAEC9941CC95ABEA7247 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VTA Operations Managers Assistant/Pods-VTA Operations Managers Assistant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTA Operations Managers Assistant/Pods-VTA Operations Managers Assistant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B5A7B283A3BCD3D579D8317 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VTA Operations Managers Assistant/Pods-VTA Operations Managers Assistant-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTA Operations Managers Assistant/Pods-VTA Operations Managers Assistant-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD76021F81A18246DD5BFB97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VTA Operations Managers Assistant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8FF377A41F9D48A600D4C50D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F05E0EF1FA10989006994AB /* MainMenuViewController.swift in Sources */,
+				8FDE7A8E1F9D4C000078C677 /* EmergencyTableViewController.swift in Sources */,
+				8F05E0F11FA10C92006994AB /* ListNavigationController.swift in Sources */,
+				8FDE7A871F9D4C000078C677 /* AlertViewController.swift in Sources */,
+				8FDE7A8D1F9D4C000078C677 /* EmergencyNavigationController.swift in Sources */,
+				8FDE7A961F9D4C000078C677 /* OptionsViewController.swift in Sources */,
+				8FDE7A8C1F9D4C000078C677 /* EmergencyListTableViewController.swift in Sources */,
+				8FDE7A8A1F9D4C000078C677 /* EmergencyContentCell.swift in Sources */,
+				8FDE7A891F9D4C000078C677 /* Emergency.swift in Sources */,
+				8FDE7A931F9D4C000078C677 /* OCPListTableViewController.swift in Sources */,
+				8FDE7A9B1F9D4C8E0078C677 /* AppDelegate.swift in Sources */,
+				8F05E0ED1FA1066F006994AB /* Quickstart.swift in Sources */,
+				8FDE7A921F9D4C000078C677 /* OCPListContentCell.swift in Sources */,
+				8FDE7A901F9D4C000078C677 /* OCP.swift in Sources */,
+				8FDE7A971F9D4C000078C677 /* VTA Operations Manager's Assistant.xcdatamodeld in Sources */,
+				8FDE7A911F9D4C000078C677 /* OCPContentCell.swift in Sources */,
+				8FDE7A941F9D4C000078C677 /* OCPNavigationController.swift in Sources */,
+				8FDE7A951F9D4C000078C677 /* OCPTableViewController.swift in Sources */,
+				8FDE7A8B1F9D4C000078C677 /* EmergencyListContentCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8FF377BB1F9D48A600D4C50D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8FF377BC1F9D48A600D4C50D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8FF377BE1F9D48A600D4C50D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FA318E785440B5E2413E5A5 /* Pods-VTA Operations Managers Assistant.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = D5J4ZY4W89;
+				INFOPLIST_FILE = "VTA Operations Managers Assistant/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nwalker2398.VTAOperationManagersAssistant.VTA-Operations-Managers-Assistant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		8FF377BF1F9D48A600D4C50D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D5C11C0A18608330D7A9E3D /* Pods-VTA Operations Managers Assistant.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = D5J4ZY4W89;
+				INFOPLIST_FILE = "VTA Operations Managers Assistant/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nwalker2398.VTAOperationManagersAssistant.VTA-Operations-Managers-Assistant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8FF377A31F9D48A600D4C50D /* Build configuration list for PBXProject "VTA Operations Managers Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FF377BB1F9D48A600D4C50D /* Debug */,
+				8FF377BC1F9D48A600D4C50D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FF377BD1F9D48A600D4C50D /* Build configuration list for PBXNativeTarget "VTA Operations Managers Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FF377BE1F9D48A600D4C50D /* Debug */,
+				8FF377BF1F9D48A600D4C50D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8FDE7A841F9D4C000078C677 /* VTA Operations Manager's Assistant.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8FDE7A851F9D4C000078C677 /* VTA Operations Manager's Assistant.xcdatamodel */,
+			);
+			currentVersion = 8FDE7A851F9D4C000078C677 /* VTA Operations Manager's Assistant.xcdatamodel */;
+			path = "VTA Operations Manager's Assistant.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8FF377A01F9D48A600D4C50D /* Project object */;
+}
