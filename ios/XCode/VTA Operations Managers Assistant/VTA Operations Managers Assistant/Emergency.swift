@@ -46,6 +46,10 @@ class Emergency {
             inputs.append(words[i].replacingOccurrences(of: "ß", with: ","))
         }
         
+        while(inputs.count < 19) {
+            inputs.append("N/A")
+        }
+        
         priority = inputs[0]
         descriptor = inputs[1]
         time = inputs[2]

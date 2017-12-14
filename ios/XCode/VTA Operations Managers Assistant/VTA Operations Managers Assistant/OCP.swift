@@ -33,6 +33,11 @@ class OCP {
     // MARK: Initialization
     
     init(words: [String]){
+        strings = words;
+        
+        while(strings.count < 12) {
+            strings.append("N/A")
+        }
         
         run = words[0]
         block = words[1]
@@ -46,8 +51,6 @@ class OCP {
         actual = words[9]
         ocp = words[10]
         oe = words[11]
-        
-        strings = [run, block, coach, op, timeDue, firstTime, direction, lastTime, pullInTime, actual, ocp, oe]
     }
     
     init(){
