@@ -11,7 +11,7 @@ public class Button {
 	protected boolean mousedOver = false;
 	
 	public enum ButtonName {
-		CREATE, OPTIONS, SHOWFILE;
+		CREATE, CHANGEPATH, SHOWFILE;
 	}
 	
 	public Button(int Y, ButtonName n, PImage im) { //constructs a button that is centered in the screen
@@ -59,7 +59,7 @@ public class Button {
 		case CREATE:
 			c.createNewObject();
 			return;
-		case OPTIONS:
+		case CHANGEPATH:
 			c.openPathWindow();
 			return;
 		case SHOWFILE:
@@ -101,8 +101,8 @@ public class Button {
 		switch (name) {
 		case CREATE:
 			return "Input New Information";
-		case OPTIONS:
-			return "Options";
+		case CHANGEPATH:
+			return "Change Path to Data File";
 		case SHOWFILE:
 			return "Open Data File";
 		}

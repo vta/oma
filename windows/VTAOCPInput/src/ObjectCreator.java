@@ -1,12 +1,24 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;;
+import java.util.List;
 
-import javax.swing.*;
+import javax.swing.AbstractButton;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 @SuppressWarnings("serial")
 public class ObjectCreator extends JPanel implements ActionListener{
@@ -90,8 +102,6 @@ public class ObjectCreator extends JPanel implements ActionListener{
     String[] directions = {"Choose One", "Northbound", "Westbound", "Southbound", "Eastbound"};
     String[] ocpStrings = {"Choose One", "Outlate", "Cancel", "Pull"};
     String[] oeStrings = {"Choose One", "Operator", "Equipment"};
-
-    Timer resizeTimer;
     
     public ObjectCreator() {
         super(new BorderLayout());
@@ -191,6 +201,7 @@ public class ObjectCreator extends JPanel implements ActionListener{
         actualTimeAMPMBox = new JComboBox<String>(nightTimeStrings);
         
         ocpBox = new JComboBox<String>(ocpStrings);
+        
         oeBox = new JComboBox<String>(oeStrings);
         
         
@@ -323,18 +334,7 @@ public class ObjectCreator extends JPanel implements ActionListener{
         buttons.add(submitButton, BorderLayout.LINE_START);
         buttons.add(cancelButton, BorderLayout.LINE_END);
         buttons.setBackground(getBackground());
-        add(buttons, BorderLayout.AFTER_LAST_LINE); b
-
-        resizeTimer = new Timer(2, new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                // Actually perform the resizing of the image...
-                System.out.println("yo");
-                if(getWidth() > labelPane.getWidth() * 2) {
-                    System.out.println("hi");
-                }
-                resizeTimer.restart();
-            }
-        });
+        add(buttons, BorderLayout.AFTER_LAST_LINE);
     }
     
     public void showErrorLabel(JLabel label, String s) {
@@ -487,6 +487,7 @@ public class ObjectCreator extends JPanel implements ActionListener{
         List<Object> list = new ArrayList<Object>();
         for(String str: s.split(",")) {
             list.add(str);
+            System.out.println("a");
         }
         controller.writeLineToFile(list);
 	}

@@ -11,6 +11,7 @@
 		8F05E0ED1FA1066F006994AB /* Quickstart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F05E0EC1FA1066F006994AB /* Quickstart.swift */; };
 		8F05E0EF1FA10989006994AB /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F05E0EE1FA10989006994AB /* MainMenuViewController.swift */; };
 		8F05E0F11FA10C92006994AB /* ListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F05E0F01FA10C92006994AB /* ListNavigationController.swift */; };
+		8FDDD92E2007A9A8002A91C3 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FDDD92D2007A9A8002A91C3 /* UserNotifications.framework */; };
 		8FDE7A871F9D4C000078C677 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A721F9D4C000078C677 /* AlertViewController.swift */; };
 		8FDE7A891F9D4C000078C677 /* Emergency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A741F9D4C000078C677 /* Emergency.swift */; };
 		8FDE7A8A1F9D4C000078C677 /* EmergencyContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE7A751F9D4C000078C677 /* EmergencyContentCell.swift */; };
@@ -41,6 +42,8 @@
 		8F05E0EC1FA1066F006994AB /* Quickstart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quickstart.swift; sourceTree = "<group>"; };
 		8F05E0EE1FA10989006994AB /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuViewController.swift; path = ../MainMenuViewController.swift; sourceTree = "<group>"; };
 		8F05E0F01FA10C92006994AB /* ListNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNavigationController.swift; sourceTree = "<group>"; };
+		8FDDD92C2007A929002A91C3 /* VTA Operations Managers Assistant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VTA Operations Managers Assistant.entitlements"; sourceTree = "<group>"; };
+		8FDDD92D2007A9A8002A91C3 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		8FDE7A721F9D4C000078C677 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		8FDE7A741F9D4C000078C677 /* Emergency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emergency.swift; sourceTree = "<group>"; };
 		8FDE7A751F9D4C000078C677 /* EmergencyContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyContentCell.swift; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FDDD92E2007A9A8002A91C3 /* UserNotifications.framework in Frameworks */,
 				91A5E3818B0E6B8CEC0E8FF0 /* Pods_VTA_Operations_Managers_Assistant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +110,7 @@
 		8FF377AA1F9D48A600D4C50D /* VTA Operations Managers Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				8FDDD92C2007A929002A91C3 /* VTA Operations Managers Assistant.entitlements */,
 				8FDE7A9C1F9D4D2D0078C677 /* Info.plist */,
 				8FDE7A9A1F9D4C8E0078C677 /* AppDelegate.swift */,
 				8FDE7A721F9D4C000078C677 /* AlertViewController.swift */,
@@ -137,6 +142,7 @@
 		D3A709F3788910D6869C3B70 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8FDDD92D2007A9A8002A91C3 /* UserNotifications.framework */,
 				042E8E1750E3FE672ED44F30 /* Pods_VTA_Operations_Managers_Assistant.framework */,
 			);
 			name = Frameworks;
@@ -180,6 +186,11 @@
 						DevelopmentTeam = D5J4ZY4W89;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -409,6 +420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "VTA Operations Managers Assistant/VTA Operations Managers Assistant.entitlements";
 				DEVELOPMENT_TEAM = D5J4ZY4W89;
 				INFOPLIST_FILE = "VTA Operations Managers Assistant/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -425,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "VTA Operations Managers Assistant/VTA Operations Managers Assistant.entitlements";
 				DEVELOPMENT_TEAM = D5J4ZY4W89;
 				INFOPLIST_FILE = "VTA Operations Managers Assistant/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

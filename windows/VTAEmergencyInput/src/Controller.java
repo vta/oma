@@ -1,10 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -12,8 +8,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Base64;
 
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -29,9 +23,8 @@ public class Controller {
 
 	private Display display;
 	private Emergency_Input emergency_Input;
-	private String tableId, metadataId, firstName, lastName, email;
+	private String tableId;
 	private TableData tableData;
-	private TableData metadataTable;
 
 	public Controller(Emergency_Input g) {
 		emergency_Input = g;
@@ -41,15 +34,8 @@ public class Controller {
 		backgroundImages = new HashMap<String, PImage>();
 		loadImages(emergency_Input);
 		putbuttons();
-		ArrayList<String> s = getMetaData();
-		tableId = s.get(0);
-		System.out.println(tableId);
-		firstName = s.get(1);
-		lastName = s.get(2);
-		email = s.get(3);
-		metadataId = s.get(4);
+		tableId = getMetaData();
 		tableData = new TableData(tableId);
-		metadataTable = new TableData(metadataId);
 		checkFileOutdated();
 	}
 
@@ -58,10 +44,10 @@ public class Controller {
 				new Button(Emergency_Input.SCREEN_WIDTH / 4,
 						Emergency_Input.SCREEN_HEIGHT / 2 - buttonImages.get("BlankButton-white").height / 2,
 						Button.ButtonName.CREATE, buttonImages.get("BlankButton-white")));
-		buttons.put("optionsButton",
+		buttons.put("pathButton",
 				new Button(Emergency_Input.SCREEN_WIDTH * 3 / 4 - buttonImages.get("BlankButton-white").width,
 						Emergency_Input.SCREEN_HEIGHT / 2 - buttonImages.get("BlankButton-white").height / 2,
-						Button.ButtonName.OPTIONS, buttonImages.get("BlankButton-white")));
+						Button.ButtonName.CHANGEPATH, buttonImages.get("BlankButton-white")));
 		buttons.put("showFileButton",
 				new Button(Emergency_Input.SCREEN_WIDTH / 2 - buttonImages.get("BlankButton-white").width / 2,
 						Emergency_Input.SCREEN_HEIGHT / 2 + buttonImages.get("BlankButton-white").height * 5 / 2,
@@ -75,7 +61,7 @@ public class Controller {
 	public void writeLineToFile(List<Object> line) {
 		checkFileOutdated();
 		tableData.appendLine(line);
-		bit64Encode();
+
 		System.out.println("data has been written to the file");
 	}
 
@@ -121,7 +107,7 @@ public class Controller {
 		}
 	}
 
-	public ArrayList<String> getMetaData() {
+	public String getMetaData() {
 		String txtFile = "Assets/paths.txt";
 		Scanner sc = null;
 		try {
@@ -129,27 +115,20 @@ public class Controller {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		ArrayList<String> strings = new ArrayList<String>();
-		while(sc.hasNext()) {
-			strings.add(sc.nextLine());
+		String s = "<none>";
+		if(sc.hasNext()) {
+			s = sc.nextLine();
 		}
 		sc.close();
-		while(strings.size() < 5) {
-			strings.add("N/A");
-		}
-		return strings;
+		return s;
 	}
 
 	public void openPathWindow() {
-		new PathWindow(tableId, firstName, lastName, email, metadataId, this);
+		new PathWindow(tableId, this);
 	}
 
-	public void changeMetaData(String newTableId, String newFirstName, String newLastName, String newEmail, String newMetadataId) {
-		this.tableId = newTableId;
-		this.firstName = newFirstName;
-		this.lastName = newLastName;
-		this.email = newEmail;
-		this.metadataId = newMetadataId;
+	public void changeMetaData(String newId) {
+		this.tableId = newId;
 		String txtFile = "Assets/paths.txt";
 		PrintWriter printWriter;
 		try {
@@ -159,37 +138,8 @@ public class Controller {
 			e.printStackTrace();
 			return;
 		}
-		printWriter.println(newTableId);
-		printWriter.println(newFirstName);
-		printWriter.println(newLastName);
-		printWriter.println(newEmail);
-		printWriter.print(newMetadataId);
+		printWriter.print("New Id: " + newId);
 		printWriter.close();
-	}
-
-	//Wrties a 64-bit-encoded string to the Metadata Google Sheet
-	//Formatted: <First Name>;<Last Name>;<Email Address>;<Mac Address>
-	public void bit64Encode() {
-		String macAddress = "null";
-		try {
-			InetAddress ip = InetAddress.getLocalHost();
-			NetworkInterface network = NetworkInterface.getByInetAddress(ip);
-			byte[] mac = network.getHardwareAddress();
-			StringBuilder sb = new StringBuilder();
-			for (int i = 0; i < mac.length; i++) {
-				sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
-			}
-			macAddress = sb.toString();
-
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		} catch (SocketException e){
-			e.printStackTrace();
-		}
-
-		String code = firstName + ";" + lastName + ";" + email + ";" + macAddress;
-		String encoded = Base64.getEncoder().encodeToString(code.getBytes());
-		metadataTable.writeMetadataLine(encoded);
 	}
 	
 	public void openFileLocation() {
@@ -204,7 +154,9 @@ public class Controller {
 		return tableData.getDate();
 	}
 	
-	public void showPathErrorPopup() { openPathWindow();}
+	public void showPathErrorPopup() {
+		new PathWindow(this.tableId, this);
+	}
 	
 	public boolean checkFileOutdated() {
 		Date now = new Date();
