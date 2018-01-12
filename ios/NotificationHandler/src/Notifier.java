@@ -7,6 +7,7 @@ import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.json.JsonFactory;
+import com.google.api.client.util.Value;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.sheets.v4.SheetsScopes;
 import com.google.api.services.sheets.v4.model.*;
@@ -110,6 +111,37 @@ public class Notifier {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        notifyPriorityGroup(service, maxPriority);
+    }
+
+    public static void notifyPriorityGroup(Sheets service, int columnIndex) {
+        String col = "A";
+        if(columnIndex == 1) col = "A";
+        if(columnIndex == 2) col = "B";
+        if(columnIndex == 3) col = "C";
+        ValueRange values;
+        try {
+            values = service.spreadsheets().values().get("1PN4USOBuPylNzyJ3xxNvw5uEUxoPzSr", ("Sheet1!" + col)).execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+            values = null;
+        }
+
+
+        Runtime rt = Runtime.getRuntime();
+        if(values != null) {
+            List<Object> objects = values.getValues().get(0);
+            for(Object o : objects) {
+                try {
+                    Process pr = rt.exec("node Assets/app.js " + (String)o);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
     }
 
     public static String getPriorityAtLine(int lineNum, Sheets service, String spreadsheetId) {

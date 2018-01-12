@@ -95,6 +95,21 @@ class MainMenuViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         present(alert, animated: true, completion: nil)
     }
     
+    func writePriority(token: String, newPriority: Int, oldPriority: Int, column: String) {
+        let spreadsheetId = "1PN4USOBuPylNzyJ3xxNvw5uEUxoPzSr"
+        let range = "Sheet1!" + column + ""
+        let valueRange = GTLRSheets_ValueRange.init();
+        valueRange.values = [
+            [token]
+        ]
+        let query = GTLRSheetsQuery_SpreadsheetsValuesAppend
+            .query(withObject: valueRange, spreadsheetId:spreadsheetId, range:range)
+        query.valueInputOption = "USER_ENTERED"
+        service.executeQuery(query,
+                             delegate: self,
+                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
+    }
+    
     func fetchMetatData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
